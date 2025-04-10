@@ -1,10 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Tiger : MonoBehaviour
 {
     // 필요 변수 (호랑이 속도, 움직임 상태, 
+    private Vector3 spawnPos;
+    public float tigerSpeed;
+
+    // 임시 변수
+    public GameObject playerScan;
+    
+    enum TState
+    {
+        Idle,
+        Run,
+        Attack,
+        Eat,
+        Die
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,17 +34,26 @@ public class Tiger : MonoBehaviour
         // 곶감에 당했을 때 (도망)
 
         // 떡을 받았을 때 (심취)
+
+        // 이동 테스트
+        TigerMove();
     }
 
     // 움직임 함수
     private void TigerMove()
     {
+        // 걷기 애니메이션 재생
 
+        //걷기 코드
+        float speed = tigerSpeed * Time.deltaTime;
+        transform.Translate(Vector3.forward * speed);
+        
     }
     
     // 플레이어 감지 함수
     private void ScanPlayer()
     {
+        // 충돌 판정 -> 태그 플레이어
 
     }
     // 상태 변화 함수(정지, 공격, 정찰)
@@ -37,4 +62,22 @@ public class Tiger : MonoBehaviour
 
     }
     // 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //플레이어가 일정 범위 안에 들어왔을 때
+        if(collision.gameObject.tag == playerScan.tag)
+        {
+            transform.position = collision.transform.position;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //플레이어가 일정 범위 안에 들어왔을 때
+        if (other.gameObject.tag == playerScan.tag)
+        {
+            transform.position = other.transform.position;
+        }
+    }
 }
