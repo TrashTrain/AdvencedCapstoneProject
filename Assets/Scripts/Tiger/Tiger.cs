@@ -55,7 +55,6 @@ public class Tiger : MonoBehaviour
     // 움직임 함수
     private void TigerMove()
     {
-        tigerState = TState.Idle;
         // 걷기 애니메이션 재생
 
         //걷기 코드
@@ -69,6 +68,14 @@ public class Tiger : MonoBehaviour
     {
         // 충돌 판정 -> 태그 플레이어
         // if((transform.position)
+        // 플레이어 방향 바라보기
+        Vector3 dir = playerT.position - transform.position;
+        dir.y = 0f;
+        Quaternion rot = Quaternion.LookRotation(dir.normalized);
+        transform.rotation = rot;
+
+        // 플레이어에게 달려가기
+
         transform.position = Vector3.MoveTowards(transform.position, playerT.position, tigerAttackSpeed * Time.deltaTime);
     }
     // 상태 변화 함수(정지, 공격, 정찰)
@@ -77,7 +84,7 @@ public class Tiger : MonoBehaviour
 
     }
     // 
-
+    
     private void OnTriggerEnter(Collider other)
     {
         tigerState = TState.Attack;
@@ -86,5 +93,10 @@ public class Tiger : MonoBehaviour
         {
             playerT = other.transform;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        tigerState = TState.Idle;
     }
 }
