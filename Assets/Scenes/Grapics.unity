@@ -825,6 +825,63 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1001 &1424542537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1922466535211610723, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_Name
+      value: Bamboo_Rafter_House_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 908.27057
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.93884
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 998.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7413748
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.67109126
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -84.303
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242766285522488168, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f28b9fdfb2ca464894ad09692210a7f, type: 3}
 --- !u!1001 &1543888017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1618,6 +1675,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa6b867ab4bcb484daca693fb76d1774, type: 3}
+--- !u!1001 &1774349927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1794754156053555144, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_Name
+      value: Bamboo_Rafter_House_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1105.4766
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 27.45173
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 269.88544
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812133651728796659, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10ee251b6db9534439c03f82ff8c6922, type: 3}
 --- !u!1001 &1912826675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1773,6 +1887,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2132712131
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 147021888261368847, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_Name
+      value: Bamboo_Rafter_House_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 347.6011
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 86.47252
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 237.35019
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5291296
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.848541
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 116.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476528480784473642, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 191f6d6ec117dd748a296b25a3928d5b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1784,3 +1955,6 @@ SceneRoots:
   - {fileID: 1739129832}
   - {fileID: 1543888017}
   - {fileID: 104309653}
+  - {fileID: 1774349927}
+  - {fileID: 2132712131}
+  - {fileID: 1424542537}
