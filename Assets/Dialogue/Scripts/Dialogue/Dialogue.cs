@@ -12,6 +12,13 @@ public class Dialogue
     [Tooltip("대사 내용")]
     public string[] contexts;
 
+    //선택지
+    public bool isChoice;
+    public string choice1;  
+    public string choice2;
+    public int choice1_Next;
+    public int choice2_Next;
+    public int skipLine;
 
 }
 [System.Serializable]

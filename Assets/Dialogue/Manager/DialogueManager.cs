@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,6 +12,12 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI txt_Dialogue;
     [SerializeField] TextMeshProUGUI txt_Name;
+
+    [SerializeField] GameObject go_ChoicePanel;
+    [SerializeField] Button btn_Choice1;
+    [SerializeField] Button btn_Choice2;
+    [SerializeField] TextMeshProUGUI txt_Choice1;
+    [SerializeField] TextMeshProUGUI txt_Choice2;
     Dialogue[] dialogues;
 
     bool isDialogue = false;//대화중 T/F
@@ -18,12 +26,19 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float textDelay;
     int lineCount = 0;      //대화 카운트
     int contextCount = 0;   //대사 카운트
+
+    string lastSpeaker = "";
+    string lastDialogue = "";
+    private void Start()
+    {
+        go_ChoicePanel.SetActive(false);
+    }
     void Update()
     {
         if (isDialogue)
-        {
-            if (isNext)
-            {
+        {   
+            if (isNext && !dialogues[lineCount].isChoice) // 선택지일 땐 무시
+            {   
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     isNext = false;
@@ -34,12 +49,21 @@ public class DialogueManager : MonoBehaviour
                     }
                     else
                     {
-                        contextCount = 0;       //다음 인물의 대사로
-                        if (++lineCount < dialogues.Length)
+                        contextCount = 0;
+                        if (dialogues[lineCount].skipLine != 0)
                         {
-                            StartCoroutine (TypeWriter());
+                            lineCount = dialogues[lineCount].skipLine - 1; // CSV 기준이 1부터일 경우 -1 해줘야 맞음
                         }
-                        else                    //대사끝나면
+                        else
+                        {
+                            lineCount++;
+                        }
+
+                        if (lineCount < dialogues.Length)
+                        {
+                            StartCoroutine(TypeWriter());
+                        }
+                        else
                         {
                             EndDialogue();
                         }
@@ -74,12 +98,30 @@ public class DialogueManager : MonoBehaviour
 
         
         txt_Name.text=dialogues[lineCount].name;
+        
         for (int i = 0; i < t_ReplaceText.Length; i++)
         {
             txt_Dialogue.text += t_ReplaceText[i];
+            lastDialogue = txt_Dialogue.text;
+            lastSpeaker = txt_Name.text;
             yield return new WaitForSeconds(textDelay);
         }
-        isNext = true;
+        if (lineCount + 1 < dialogues.Length && dialogues[lineCount + 1].isChoice==true)    //다음 대사가 선택지면 space 스킵해 바로 다음 대사(선택지)로
+        {
+            lineCount++;  
+            contextCount = 0; 
+            StartCoroutine(TypeWriter());
+        }
+        if (dialogues[lineCount].isChoice)
+        {
+            ShowChoice();
+        }
+
+        else
+        {
+            isNext = true;
+        }
+        
        
 
     }
@@ -88,7 +130,31 @@ public class DialogueManager : MonoBehaviour
         go_DialogueBar.SetActive(p_flag);
         go_DialogueNameBar.SetActive(p_flag);
     }
+    void ShowChoice()
+    {
+        go_ChoicePanel.SetActive(true);
 
-   
+        txt_Name.text = lastSpeaker;
+        txt_Dialogue.text = lastDialogue;
+
+
+        txt_Choice1.text = dialogues[lineCount].choice1;
+        txt_Choice2.text = dialogues[lineCount].choice2;
+
+        btn_Choice1.onClick.RemoveAllListeners();
+        btn_Choice2.onClick.RemoveAllListeners();
+
+        btn_Choice1.onClick.AddListener(() => OnChoiceSelected(dialogues[lineCount].choice1_Next));
+        btn_Choice2.onClick.AddListener(() => OnChoiceSelected(dialogues[lineCount].choice2_Next));
+    }
+    void OnChoiceSelected(int nextLine)
+    {
+        go_ChoicePanel.SetActive(false);
+        lineCount = nextLine - 1;
+        contextCount = 0;
+        txt_Dialogue.text = "";
+        Debug.Log(nextLine);
+        StartCoroutine(TypeWriter());
+    }
   
 }

@@ -17,6 +17,7 @@ public class InteractionEvent : MonoBehaviour
         if (dialogueManager != null)
         {
             dialogueManager.ShowDialogue(dialogue.dialogues);
+            
         }
     }
     public Dialogue[] GetDialogue()
