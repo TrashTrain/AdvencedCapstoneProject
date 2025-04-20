@@ -74,9 +74,9 @@ public class Tiger : MonoBehaviour
         Quaternion rot = Quaternion.LookRotation(dir.normalized);
         transform.rotation = rot;
 
-        // 플레이어에게 달려가기
+        // 플레이어에게 달려가기 방향만 바라보고 애니메이션으로 달리기.
 
-        transform.position = Vector3.MoveTowards(transform.position, playerT.position, tigerAttackSpeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, playerT.position, tigerAttackSpeed * Time.deltaTime);
     }
     // 상태 변화 함수(정지, 공격, 정찰)
     public void TigerStateChange()
