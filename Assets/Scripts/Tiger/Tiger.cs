@@ -9,13 +9,14 @@ public class Tiger : MonoBehaviour
     private Vector3 spawnPos;
     public float tigerSpeed;
     public float tigerAttackSpeed;
-    private TState tigerState;
-    private Transform playerT;
+    public static TState tigerState;
+    [HideInInspector]
+    public static Transform playerT;
 
     // 임시 변수
     public GameObject playerScan;
     
-    enum TState
+    public enum TState
     {
         Idle,
         Run,
@@ -28,6 +29,7 @@ public class Tiger : MonoBehaviour
     void Start()
     {
         // 첫 등장은 마을에서 집에서 나온 뒤.(배치 해두고 스토리 이후 시작)
+        playerT = transform;
         tigerState = TState.Idle;
     }
 
@@ -42,9 +44,12 @@ public class Tiger : MonoBehaviour
         switch (tigerState)
         {
             case TState.Idle:
+                Debug.Log("Idle");
+                ScanPlayer();
                 TigerMove();
                 break;
             case TState.Attack:
+                Debug.Log("Attack");
                 ScanPlayer();
                 break;
         }
@@ -82,21 +87,5 @@ public class Tiger : MonoBehaviour
     public void TigerStateChange()
     {
 
-    }
-    // 
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        tigerState = TState.Attack;
-        //플레이어가 일정 범위 안에 들어왔을 때
-        if (other.gameObject.tag == playerScan.tag)
-        {
-            playerT = other.transform;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        tigerState = TState.Idle;
     }
 }
