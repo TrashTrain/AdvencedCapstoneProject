@@ -16,8 +16,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject go_ChoicePanel;
     [SerializeField] Button btn_Choice1;
     [SerializeField] Button btn_Choice2;
+    [SerializeField] Button btn_Choice3;
     [SerializeField] TextMeshProUGUI txt_Choice1;
     [SerializeField] TextMeshProUGUI txt_Choice2;
+    [SerializeField] TextMeshProUGUI txt_Choice3;
     Dialogue[] dialogues;
 
     bool isDialogue = false;//´ëÈ­Áß T/F
@@ -36,7 +38,8 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         if (isDialogue)
-        {   
+        {
+            
             if (isNext && !dialogues[lineCount].isChoice) // ¼±ÅÃÁöÀÏ ¶© ¹«½Ã
             {   
                 if (Input.GetKeyDown(KeyCode.Space))
@@ -92,6 +95,11 @@ public class DialogueManager : MonoBehaviour
     }
     IEnumerator TypeWriter()
     {
+        if (lineCount >= dialogues.Length)
+        {
+            EndDialogue();
+            yield break;
+        }
         SettingUI(true);
         string t_ReplaceText = dialogues[lineCount].contexts[contextCount];
         t_ReplaceText = t_ReplaceText.Replace("'", ","); //¿¢¼¿»ó¿¡¼­ ' -> ,
@@ -137,15 +145,32 @@ public class DialogueManager : MonoBehaviour
         txt_Name.text = lastSpeaker;
         txt_Dialogue.text = lastDialogue;
 
+        if (!string.IsNullOrEmpty(dialogues[lineCount].choice3))
+        {
+            txt_Choice3.text = dialogues[lineCount].choice3;
+            btn_Choice3.gameObject.SetActive(true);
+            btn_Choice3.onClick.RemoveAllListeners();
+            btn_Choice3.onClick.AddListener(() => OnChoiceSelected(dialogues[lineCount].choice3_Next));
+        }
+        else
+        {
+            btn_Choice3.gameObject.SetActive(false);
+        }
+
+
 
         txt_Choice1.text = dialogues[lineCount].choice1;
         txt_Choice2.text = dialogues[lineCount].choice2;
+       
 
         btn_Choice1.onClick.RemoveAllListeners();
         btn_Choice2.onClick.RemoveAllListeners();
+       
 
         btn_Choice1.onClick.AddListener(() => OnChoiceSelected(dialogues[lineCount].choice1_Next));
         btn_Choice2.onClick.AddListener(() => OnChoiceSelected(dialogues[lineCount].choice2_Next));
+        
+        
     }
     void OnChoiceSelected(int nextLine)
     {

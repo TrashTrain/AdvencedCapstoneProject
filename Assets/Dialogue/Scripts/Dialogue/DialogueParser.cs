@@ -25,6 +25,11 @@ public class DialougeParser : MonoBehaviour
                 dialogue.choice1_Next = int.Parse(row[4]);
                 dialogue.choice2 = row[5];
                 dialogue.choice2_Next = int.Parse(row[6]);
+                if (row.Length > 7 && !string.IsNullOrEmpty(row[7]) && !string.IsNullOrEmpty(row[8]))
+                {
+                    dialogue.choice3 = row[7];
+                    dialogue.choice3_Next = int.Parse(row[8]);
+                }
 
                 dialougeList.Add(dialogue);
                 i++;
@@ -35,9 +40,9 @@ public class DialougeParser : MonoBehaviour
                 dialogue.name = row[1];     //등장인물 이름
                 List<string> contextList = new List<string>();
                 int parsedSkipLine=0;
-                if (row.Length > 7 && !string.IsNullOrEmpty(row[7]))
+                if (row.Length > 9 && !string.IsNullOrEmpty(row[9]))
                 {
-                    int.TryParse(row[7], out parsedSkipLine);
+                    int.TryParse(row[9], out parsedSkipLine);
                 }
 
                 do

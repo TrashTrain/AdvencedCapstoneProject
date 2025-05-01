@@ -16,8 +16,10 @@ public class Dialogue
     public bool isChoice;
     public string choice1;  
     public string choice2;
+    public string choice3;
     public int choice1_Next;
     public int choice2_Next;
+    public int choice3_Next;
     public int skipLine;
 
 }
