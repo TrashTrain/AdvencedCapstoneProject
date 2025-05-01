@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class TigerScanS : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Tiger GetTiger;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        Debug.Log("플레이어 감지");
+        if (other.CompareTag("Player"))
+        {
+            GetTiger.tigerState = Tiger.TState.Idle;
+
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("플레이어 감지중");
+            GetTiger.playerT = other.transform;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        Debug.Log("플레이어 감지 종료");
+        GetTiger.tigerState = Tiger.TState.Idle;
     }
+
 }

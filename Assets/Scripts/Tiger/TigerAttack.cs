@@ -2,19 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TigerAttack : Tiger
+public class TigerAttack : MonoBehaviour
 {
-    public GameObject Tiger;
+    public Tiger GetTiger;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        Debug.Log("플레이어 감지");
+        if (other.CompareTag("Player"))
+        {
+            GetTiger.tigerState = Tiger.TState.Attack;
+
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("플레이어 감지중");
+            GetTiger.playerT = other.transform;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        Debug.Log("플레이어 감지 종료");
+        GetTiger.tigerState = Tiger.TState.Idle;
     }
 }

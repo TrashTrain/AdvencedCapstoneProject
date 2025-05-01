@@ -7,15 +7,17 @@ public class Tiger : MonoBehaviour
 {
     // 필요 변수 (호랑이 속도, 움직임 상태, 
     private Vector3 spawnPos;
-    public float tigerSpeed;
+    [Header("TigerStateInfo")]
+    public float tigerWalkSpeed;
+    public float tigerRunSpeed;
     public float tigerAttackSpeed;
-    public static TState tigerState;
-    [HideInInspector]
-    public static Transform playerT;
+    public TState tigerState;
 
-    // 임시 변수
-    public GameObject playerScan;
-    
+    private Animator animator;
+
+    [HideInInspector]
+    public Transform playerT;
+
     public enum TState
     {
         Idle,
@@ -31,6 +33,7 @@ public class Tiger : MonoBehaviour
         // 첫 등장은 마을에서 집에서 나온 뒤.(배치 해두고 스토리 이후 시작)
         playerT = transform;
         tigerState = TState.Idle;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,26 +51,53 @@ public class Tiger : MonoBehaviour
                 ScanPlayer();
                 TigerMove();
                 break;
+            case TState.Run:
+                Debug.Log("Run");
+                ScanPlayer();
+                TigerRun();
+                break;
             case TState.Attack:
                 Debug.Log("Attack");
                 ScanPlayer();
+                TigerAttack();
                 break;
         }
         // 이동 테스트
         
     }
-
+    // 상태 변화 함수(정지, 공격, 정찰)
+    public void TigerStateChange(TState state)
+    {
+    }
     // 움직임 함수
     private void TigerMove()
     {
         // 걷기 애니메이션 재생
 
         //걷기 코드
-        float speed = tigerSpeed * Time.deltaTime;
+        float speed = tigerWalkSpeed * Time.deltaTime;
         transform.Translate(Vector3.forward * speed);
-        
+        animator.SetBool("ScanTigerL", false);
+        animator.SetBool("ScanTigerS", true);
+
     }
-    
+    private void TigerRun()
+    {
+        
+        //뛰기 코드
+        float speed = tigerRunSpeed * Time.deltaTime;
+        transform.Translate(Vector3.forward * speed);
+        animator.SetBool("ScanTigerS", false);
+        animator.SetBool("ScanTigerL", true);
+
+    }
+
+    private void TigerAttack()
+    {
+        animator.SetBool("ScanTigerS", false);
+        animator.SetBool("AttackTiger", true);
+    }
+
     // 플레이어 감지 함수
     private void ScanPlayer()
     {
@@ -83,9 +113,5 @@ public class Tiger : MonoBehaviour
 
         //transform.position = Vector3.MoveTowards(transform.position, playerT.position, tigerAttackSpeed * Time.deltaTime);
     }
-    // 상태 변화 함수(정지, 공격, 정찰)
-    public void TigerStateChange()
-    {
-
-    }
+    
 }
