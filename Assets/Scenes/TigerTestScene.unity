@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &30123718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7277753869821134554, guid: 9b7af92934a171d4d8b2ed1e083bec8e, type: 3}
-  m_PrefabInstance: {fileID: 1741563756795109974}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &229864966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,10 +1146,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5403558805797514681, guid: 47042f678e9498e4da4cc262a41ebbe7, type: 3}
-      propertyPath: playerScan
-      value: 
-      objectReference: {fileID: 30123718}
     - target: {fileID: 8663637038146650665, guid: 47042f678e9498e4da4cc262a41ebbe7, type: 3}
       propertyPath: m_Name
       value: Tiger
