@@ -11,7 +11,14 @@ public class TigerScanL : MonoBehaviour
         Debug.Log("플레이어 감지");
         if (other.CompareTag("Player"))
         {
-            GetTiger.tigerState = Tiger.TState.Run;
+            if(GameMgr.Instance.PlayerInit().GetBoundaryLevel() >= 2)
+            {
+                GetTiger.tigerState = Tiger.TState.Run;
+            }
+            else
+            {
+                GetTiger.tigerState = Tiger.TState.Idle;
+            }
 
         }
     }

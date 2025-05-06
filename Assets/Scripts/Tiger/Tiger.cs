@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 public class Tiger : MonoBehaviour
@@ -14,6 +15,8 @@ public class Tiger : MonoBehaviour
     public TState tigerState;
 
     private Animator animator;
+
+    private NavMeshAgent meshAgent;
 
     [HideInInspector]
     public Transform playerT;
@@ -34,6 +37,7 @@ public class Tiger : MonoBehaviour
         playerT = transform;
         tigerState = TState.Idle;
         animator = GetComponent<Animator>();
+        meshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -58,7 +62,7 @@ public class Tiger : MonoBehaviour
                 break;
             case TState.Attack:
                 Debug.Log("Attack");
-                ScanPlayer();
+                //ScanPlayer();
                 TigerAttack();
                 break;
         }
@@ -75,18 +79,20 @@ public class Tiger : MonoBehaviour
         // 걷기 애니메이션 재생
 
         //걷기 코드
-        float speed = tigerWalkSpeed * Time.deltaTime;
-        transform.Translate(Vector3.forward * speed);
+        //float speed = tigerWalkSpeed * Time.deltaTime;
+        //transform.Translate(Vector3.forward * speed);
+        meshAgent.speed = tigerWalkSpeed;
         animator.SetBool("ScanTigerL", false);
         animator.SetBool("ScanTigerS", true);
 
     }
     private void TigerRun()
     {
-        
+
         //뛰기 코드
-        float speed = tigerRunSpeed * Time.deltaTime;
-        transform.Translate(Vector3.forward * speed);
+        //float speed = tigerRunSpeed * Time.deltaTime;
+        //transform.Translate(Vector3.forward * speed);
+        meshAgent.speed = tigerRunSpeed;
         animator.SetBool("ScanTigerS", false);
         animator.SetBool("ScanTigerL", true);
 
@@ -104,10 +110,15 @@ public class Tiger : MonoBehaviour
         // 충돌 판정 -> 태그 플레이어
         // if((transform.position)
         // 플레이어 방향 바라보기
-        Vector3 dir = playerT.position - transform.position;
-        dir.y = 0f;
-        Quaternion rot = Quaternion.LookRotation(dir.normalized);
-        transform.rotation = rot;
+
+        // 위치 이동
+        //vector3 dir = playert.position - transform.position;
+        //dir.y = 0f;
+        //quaternion rot = quaternion.lookrotation(dir.normalized);
+        //transform.rotation = rot;
+        
+        // navMesh 사용 이동
+        meshAgent.SetDestination(playerT.position);
 
         // 플레이어에게 달려가기 방향만 바라보고 애니메이션으로 달리기.
 

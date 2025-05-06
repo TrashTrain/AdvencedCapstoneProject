@@ -11,8 +11,14 @@ public class TigerScanS : MonoBehaviour
         Debug.Log("플레이어 감지");
         if (other.CompareTag("Player"))
         {
-            GetTiger.tigerState = Tiger.TState.Idle;
-
+            if (GameMgr.Instance.PlayerInit().GetBoundaryLevel() >= 1)
+            {
+                GetTiger.tigerState = Tiger.TState.Run;
+            }
+            else
+            {
+                GetTiger.tigerState = Tiger.TState.Idle;
+            }
         }
     }
     private void OnTriggerStay(Collider other)
