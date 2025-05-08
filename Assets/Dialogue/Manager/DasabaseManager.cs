@@ -42,7 +42,7 @@ public class DasabaseManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"{fileName}의 {lineNum}번째 줄이 존재하지 않습니다.");
+               // Debug.LogWarning($"{fileName}의 {lineNum}번째 줄이 존재하지 않습니다.");
             }
         }
 
