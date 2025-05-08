@@ -946,13 +946,63 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 602631162}
   m_SourcePrefab: {fileID: 100100000, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
 --- !u!4 &602631159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5686134208185136530, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
   m_PrefabInstance: {fileID: 602631158}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &602631160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
+  m_PrefabInstance: {fileID: 602631158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &602631161 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5686134208192617028, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
+  m_PrefabInstance: {fileID: 602631158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &602631162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602631160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e457a9b6480d84743a556b2c7b79a8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinchAnimaionAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Pinch Animaion
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 83e3be10-1e75-4a39-9069-922dde56676a
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  gripAnimtionAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Grip Animtion
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: c851ca41-5477-4ffa-bc2f-e102134ee785
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  HandAnimator: {fileID: 602631161}
 --- !u!1 &856749899
 GameObject:
   m_ObjectHideFlags: 0
