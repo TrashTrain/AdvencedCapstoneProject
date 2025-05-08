@@ -10,14 +10,14 @@ public class SettingBtnManager : MonoBehaviour
 
     public Sprite setting;
     public Sprite close;
-
-    private Image buttonImage;
+    public Button backbtn;
+    public Button originbtn;
+    
     // Start is called before the first frame update
     void Start()
     {
-        buttonImage = GetComponent<Image>();
-        buttonImage.sprite = setting;
-
+        
+        backbtn.gameObject.SetActive(false);
         SettingPanel.SetActive(false);
         isOpen = false;
     }
@@ -27,13 +27,15 @@ public class SettingBtnManager : MonoBehaviour
         {
             SettingPanel.SetActive(true);
             isOpen = true;
-            buttonImage.sprite = close;
-        }
+            originbtn.gameObject.SetActive(false);
+            backbtn.gameObject.SetActive(true);
+}
         else if (isOpen == true)
         {
             SettingPanel.SetActive(false);
             isOpen=false;
-            buttonImage.sprite = setting;
+            originbtn.gameObject.SetActive(true);
+            backbtn.gameObject.SetActive(false);
         }
     }
 
