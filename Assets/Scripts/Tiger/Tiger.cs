@@ -8,6 +8,7 @@ public class Tiger : MonoBehaviour
 {
     // 필요 변수 (호랑이 속도, 움직임 상태, 
     private Vector3 spawnPos;
+
     [Header("TigerStateInfo")]
     public float tigerWalkSpeed;
     public float tigerRunSpeed;
@@ -20,6 +21,10 @@ public class Tiger : MonoBehaviour
 
     [HideInInspector]
     public Transform playerT;
+
+    // 호랑이 자동 움직임 변수
+    public float updateInterval = 3f;
+    private float timeSinceLastUpdate;
 
     public enum TState
     {
@@ -38,11 +43,13 @@ public class Tiger : MonoBehaviour
         tigerState = TState.Idle;
         animator = GetComponent<Animator>();
         meshAgent = GetComponent<NavMeshAgent>();
+        timeSinceLastUpdate = updateInterval;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         // 플레이어 좌표를 향해 일정 속도로 달려오기. -> 플레이어와 일정범위 안으로 가까워지면 점프 공격
         // 곶감에 당했을 때 (도망)
 
@@ -52,12 +59,12 @@ public class Tiger : MonoBehaviour
         {
             case TState.Idle:
                 Debug.Log("Idle");
-                ScanPlayer();
+                GetRandomMove();
                 TigerMove();
                 break;
             case TState.Run:
                 Debug.Log("Run");
-                ScanPlayer();
+                GetRandomMove();
                 TigerRun();
                 break;
             case TState.Attack:
@@ -69,9 +76,61 @@ public class Tiger : MonoBehaviour
         // 이동 테스트
         
     }
-    // 상태 변화 함수(정지, 공격, 정찰)
-    public void TigerStateChange(TState state)
+    // 3초마다 새로운 랜덤 위치를 찾아 이동하는 함수
+    public void GetRandomMove()
     {
+        timeSinceLastUpdate += Time.deltaTime;
+
+        if (timeSinceLastUpdate >= updateInterval)
+        {
+            if(GameMgr.Instance.PlayerInit().GetBoundaryLevel() == 0)
+            {
+                Vector3 randPos = GetRandomPosition();
+                meshAgent.SetDestination(randPos);
+                timeSinceLastUpdate = 0f;
+            }
+            else 
+            {
+                meshAgent.SetDestination(playerT.position);
+                timeSinceLastUpdate = 0f;
+            }
+        }
+    }
+    
+    public Vector3 GetRandomPosition()
+    {
+        Vector3 randDirect = Random.insideUnitSphere * 20f;
+        randDirect += transform.position;
+
+        NavMeshHit hit;
+        if(NavMesh.SamplePosition(randDirect, out hit, 20f, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+        else
+        {
+            return transform.position;
+        }
+        
+    }
+
+    // 상태 변화 함수(정지, 공격, 정찰)
+    public void TigerStateChanger()
+    {
+        int level = GameMgr.Instance.PlayerInit().GetBoundaryLevel();
+        switch (level)
+        {
+            case 0:
+                tigerState = TState.Idle;
+                break;
+            case 1:
+                tigerState = TState.Idle;
+                break;
+            case 2:
+                tigerState = TState.Run;
+                break;
+        }
+        GetRandomMove();
     }
     // 움직임 함수
     private void TigerMove()
