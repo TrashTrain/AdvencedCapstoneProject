@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51be8df7e2cc9bc41bbe54745a7f6175, type: 3}
   m_Name: Rice Cake
   m_EditorClassIdentifier: 
-  itemName: 
-  itemImage: {fileID: 0}
+  itemName: Cake
+  itemImage: {fileID: 21300000, guid: 3bcb03adacc2fb44cb6d4883558104ad, type: 3}

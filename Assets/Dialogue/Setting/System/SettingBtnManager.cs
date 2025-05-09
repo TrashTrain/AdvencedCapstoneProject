@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class SettingBtnManager : MonoBehaviour
 {
     public GameObject SettingPanel;
+    public GameObject BackGround;
     private bool isOpen;
-
     public Sprite setting;
     public Sprite close;
     public Button backbtn;
@@ -19,6 +19,7 @@ public class SettingBtnManager : MonoBehaviour
         
         backbtn.gameObject.SetActive(false);
         SettingPanel.SetActive(false);
+        BackGround.gameObject.SetActive(false);
         isOpen = false;
     }
     public void manageSettingPanel()
@@ -29,6 +30,7 @@ public class SettingBtnManager : MonoBehaviour
             isOpen = true;
             originbtn.gameObject.SetActive(false);
             backbtn.gameObject.SetActive(true);
+            BackGround.gameObject.SetActive(true);
 }
         else if (isOpen == true)
         {
@@ -36,6 +38,7 @@ public class SettingBtnManager : MonoBehaviour
             isOpen=false;
             originbtn.gameObject.SetActive(true);
             backbtn.gameObject.SetActive(false);
+            BackGround.gameObject.SetActive(false);
         }
     }
 
