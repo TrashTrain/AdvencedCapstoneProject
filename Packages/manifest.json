@@ -2,6 +2,7 @@
   "dependencies": {
     "com.unity.cinemachine": "2.10.1",
     "com.unity.cloud.gltfast": "6.12.1",
+    "com.manakhovn.figma_to_unity_importer": "https://github.com/ManakhovN/FigmaToUnityImporter.git?path=/Assets/FigmaImporter",
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.31",
