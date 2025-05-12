@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/GameStart.unity.meta
 guid: 7928766520e2c3447b55064556813891
+========
+guid: 319dafa5c80f29f428dc1e0d03f04177
+>>>>>>>> origin/PSWtest:Assets/Samples/XR Interaction Toolkit/2.6.4/Starter Assets/DemoScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

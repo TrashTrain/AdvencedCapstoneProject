@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/UI.unity.meta
 guid: 8932a61ac41528f4eb07eb729f89c6c3
+========
+guid: 051f668195e71264bab1b636547a2c56
+folderAsset: yes
+>>>>>>>> origin/PSWtest:Assets/Materials.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
