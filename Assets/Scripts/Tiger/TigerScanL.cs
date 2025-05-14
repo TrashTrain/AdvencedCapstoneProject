@@ -16,9 +16,11 @@ public class TigerScanL : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+
         if (other.CompareTag("Player"))
         {
             Debug.Log("플레이어 감지중");
+            GetTiger.checkRange = 1;
             GetTiger.playerT = other.transform;
             GetTiger.TigerStateChanger();
         }

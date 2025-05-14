@@ -13,4 +13,14 @@ public class PlayerTest
         boundaryLevel = level;
     }
 
+    public void SetUpBoundaryLevel()
+    {
+        boundaryLevel += 1;
+    }
+
+    public void SetDownBoundaryLevel()
+    {
+        boundaryLevel -= 1;
+    }
+
 }

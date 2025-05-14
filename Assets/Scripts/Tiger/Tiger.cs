@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -23,8 +21,16 @@ public class Tiger : MonoBehaviour
     public Transform playerT;
 
     // 호랑이 자동 움직임 변수
-    public float updateInterval = 3f;
+    public float updateInterval = 5f;
     private float timeSinceLastUpdate;
+
+    // 시간 제한 
+    public float checkOrderTime = 10f;
+    private float timeCheckOrderUpdate;
+
+    // 범위 스캔 체크 변수
+    public int checkRange = 0;
+    private int updateCheckRange;
 
     public enum TState
     {
@@ -44,6 +50,7 @@ public class Tiger : MonoBehaviour
         animator = GetComponent<Animator>();
         meshAgent = GetComponent<NavMeshAgent>();
         timeSinceLastUpdate = updateInterval;
+        timeCheckOrderUpdate = checkOrderTime;
     }
 
     // Update is called once per frame
@@ -76,14 +83,40 @@ public class Tiger : MonoBehaviour
         // 이동 테스트
         
     }
+
+    public void OnCheckScanRange()
+    {
+        var player = GameMgr.Instance.PlayerInit();
+        if (updateCheckRange != checkRange)
+        {
+            switch (checkRange)
+            {
+                case 0:
+                    break;
+                case 1:
+                    player.SetUpBoundaryLevel();
+                    break;
+                case 2:
+                    player.SetDownBoundaryLevel();
+                    break;
+            }
+
+            Debug.Log("CheckRange : " + checkRange);
+            updateCheckRange = checkRange;
+        }
+        
+        
+    }
+
     // 3초마다 새로운 랜덤 위치를 찾아 이동하는 함수
     public void GetRandomMove()
     {
         timeSinceLastUpdate += Time.deltaTime;
-
+        timeCheckOrderUpdate += Time.deltaTime;
+        OnCheckScanRange();
         if (timeSinceLastUpdate >= updateInterval)
         {
-            if(GameMgr.Instance.PlayerInit().GetBoundaryLevel() == 0)
+            if(GameMgr.Instance.PlayerInit().GetBoundaryLevel() == 0 && timeCheckOrderUpdate >= checkOrderTime)
             {
                 Vector3 randPos = GetRandomPosition();
                 meshAgent.SetDestination(randPos);
@@ -92,6 +125,7 @@ public class Tiger : MonoBehaviour
             else 
             {
                 meshAgent.SetDestination(playerT.position);
+                timeCheckOrderUpdate = 0f;
                 timeSinceLastUpdate = 0f;
             }
         }
@@ -118,6 +152,7 @@ public class Tiger : MonoBehaviour
     public void TigerStateChanger()
     {
         int level = GameMgr.Instance.PlayerInit().GetBoundaryLevel();
+        Debug.Log("BaoundaryLevel = " + level);
         switch (level)
         {
             case 0:
@@ -163,7 +198,7 @@ public class Tiger : MonoBehaviour
         animator.SetBool("AttackTiger", true);
     }
 
-    // 플레이어 감지 함수
+    // 플레이어 감지 함수(사용 안함)
     private void ScanPlayer()
     {
         // 충돌 판정 -> 태그 플레이어

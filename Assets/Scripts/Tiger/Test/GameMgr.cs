@@ -8,7 +8,7 @@ public class GameMgr : MonoBehaviour
 
     private static GameMgr instance = null;
     PlayerTest player = new PlayerTest();
-    void Start()
+    void Awake()
     {
         if(instance == null)
         {

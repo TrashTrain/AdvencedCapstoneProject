@@ -19,6 +19,7 @@ public class TigerScanS : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("플레이어 감지중");
+            GetTiger.checkRange = 2;
             GetTiger.playerT = other.transform;
             GetTiger.TigerStateChanger();
             
