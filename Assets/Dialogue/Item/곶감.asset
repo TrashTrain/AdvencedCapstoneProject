@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: "\uACF6\uAC10"
   m_EditorClassIdentifier: 
   itemName: "\uACF6\uAC10"
-  itemImage: {fileID: 21300000, guid: 5875d58de59167b4292fe3683be25309, type: 3}
+  itemText: "\uC798 \uB9D0\uB9B0 \uACF6\uAC10. \uB9DB\uC788\uC5B4 \uBCF4\uC778\uB2E4.
+    \uC12D\uCDE8\uD558\uBA74 \uD5C8\uAE30\uB97C \uCC44\uC6CC\uC904 \uC218 \uC788\uB2E4.
+    \uC5B4\uCA4C\uBA74 \uD638\uB791\uC774\uAC00 \uBB34\uC11C\uC6CC\uD560\uC9C0\uB3C4...?"
+  itemImage: {fileID: 21300000, guid: 4943d8a71b4aaf54a9f5861ec94009d7, type: 3}
+  itemGetImage: {fileID: 21300000, guid: 4943d8a71b4aaf54a9f5861ec94009d7, type: 3}
+  isStack: 1
+  quantity: 0

@@ -20,6 +20,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI txt_Choice1;
     [SerializeField] TextMeshProUGUI txt_Choice2;
     [SerializeField] TextMeshProUGUI txt_Choice3;
+
+    [SerializeField] Image DialNextImage;
     Dialogue[] dialogues;
 
     bool isDialogue = false;//¥Î»≠¡ﬂ T/F
@@ -45,7 +47,9 @@ public class DialogueManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     isNext = false;
+                    DialNextImage.gameObject.SetActive(false);
                     txt_Dialogue.text = "";
+                    
                     if (++contextCount < dialogues[lineCount].contexts.Length)
                     {
                         StartCoroutine(TypeWriter());
@@ -123,11 +127,13 @@ public class DialogueManager : MonoBehaviour
         if (dialogues[lineCount].isChoice)
         {
             ShowChoice();
+            DialNextImage.gameObject.SetActive(true);
         }
 
         else
         {
             isNext = true;
+            DialNextImage.gameObject.SetActive(true);
         }
         
        
@@ -180,6 +186,7 @@ public class DialogueManager : MonoBehaviour
         txt_Dialogue.text = "";
         Debug.Log(nextLine);
         StartCoroutine(TypeWriter());
+        DialNextImage.gameObject.SetActive(false);
     }
   
 }
