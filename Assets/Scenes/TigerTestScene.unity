@@ -1585,7 +1585,7 @@ GameObject:
   - component: {fileID: 1026812826}
   - component: {fileID: 1026812825}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: TigerHeadCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
