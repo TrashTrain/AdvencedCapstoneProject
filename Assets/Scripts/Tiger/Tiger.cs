@@ -21,16 +21,12 @@ public class Tiger : MonoBehaviour
     public Transform playerT;
 
     // 호랑이 자동 움직임 변수
-    public float updateInterval = 5f;
+    private float updateInterval = 10f;
     private float timeSinceLastUpdate;
-
-    // 시간 제한 
-    public float checkOrderTime = 10f;
-    private float timeCheckOrderUpdate;
 
     // 범위 스캔 체크 변수
     public int checkRange = 0;
-    private int updateCheckRange;
+    private int updateCheckRange = 0;
 
     public enum TState
     {
@@ -50,7 +46,6 @@ public class Tiger : MonoBehaviour
         animator = GetComponent<Animator>();
         meshAgent = GetComponent<NavMeshAgent>();
         timeSinceLastUpdate = updateInterval;
-        timeCheckOrderUpdate = checkOrderTime;
     }
 
     // Update is called once per frame
@@ -112,11 +107,10 @@ public class Tiger : MonoBehaviour
     public void GetRandomMove()
     {
         timeSinceLastUpdate += Time.deltaTime;
-        timeCheckOrderUpdate += Time.deltaTime;
         OnCheckScanRange();
         if (timeSinceLastUpdate >= updateInterval)
         {
-            if(GameMgr.Instance.PlayerInit().GetBoundaryLevel() == 0 && timeCheckOrderUpdate >= checkOrderTime)
+            if(GameMgr.Instance.PlayerInit().GetBoundaryLevel() <= 0)
             {
                 Vector3 randPos = GetRandomPosition();
                 meshAgent.SetDestination(randPos);
@@ -125,7 +119,6 @@ public class Tiger : MonoBehaviour
             else 
             {
                 meshAgent.SetDestination(playerT.position);
-                timeCheckOrderUpdate = 0f;
                 timeSinceLastUpdate = 0f;
             }
         }
@@ -152,7 +145,7 @@ public class Tiger : MonoBehaviour
     public void TigerStateChanger()
     {
         int level = GameMgr.Instance.PlayerInit().GetBoundaryLevel();
-        Debug.Log("BaoundaryLevel = " + level);
+        Debug.Log("BoundaryLevel = " + level);
         switch (level)
         {
             case 0:
@@ -163,6 +156,9 @@ public class Tiger : MonoBehaviour
                 break;
             case 2:
                 tigerState = TState.Run;
+                break;
+            case 3:
+                tigerState = TState.Attack;
                 break;
         }
         GetRandomMove();

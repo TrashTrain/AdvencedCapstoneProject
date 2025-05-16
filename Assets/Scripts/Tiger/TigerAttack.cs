@@ -13,16 +13,17 @@ public class TigerAttack : MonoBehaviour
         {
             // 슬로우모션
             // GameMgr.Instance.SlowMotion(0.5f);
-            GetTiger.tigerState = Tiger.TState.Attack;
+            GameMgr.Instance.PlayerInit().SetBoundaryLevel(3);
+            GetTiger.TigerStateChanger();
         }
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (GetTiger.tigerState != Tiger.TState.Attack)
-                GetTiger.tigerState = Tiger.TState.Attack;
             Debug.Log("플레이어 감지중");
+            GetTiger.TigerStateChanger();
+            
             GetTiger.playerT = other.transform;
         }
     }

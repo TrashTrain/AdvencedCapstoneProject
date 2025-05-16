@@ -7,21 +7,24 @@ using UnityEngine.UI;
 public class TestLevelChanger : MonoBehaviour
 {
     public TMP_InputField changeText;
-    private PlayerTest player = GameMgr.Instance.PlayerInit();
-    public void OnClickLevelChanger()
+    //private PlayerTest player = GameMgr.Instance.PlayerInit();
+    //public void OnClickLevelChanger()
+    //{
+    //    player.SetBoundaryLevel(int.Parse(changeText.text));
+    //    Debug.Log(player.GetBoundaryLevel());
+    //}
+    private void Update()
     {
-        player.SetBoundaryLevel(int.Parse(changeText.text));
-        Debug.Log(player.GetBoundaryLevel());
+        changeText.text = GameMgr.Instance.PlayerInit().GetBoundaryLevel().ToString();
     }
-
     public void OnClickLevelUpBtn()
     {
-        player.SetUpBoundaryLevel();
-        changeText.text = player.GetBoundaryLevel().ToString();
+        GameMgr.Instance.PlayerInit().SetUpBoundaryLevel();
+        
     }
     public void OnClickLevelDownBtn()
     {
-        player.SetDownBoundaryLevel();
-        changeText.text = player.GetBoundaryLevel().ToString();
+        GameMgr.Instance.PlayerInit().SetDownBoundaryLevel();
+        
     }
 }

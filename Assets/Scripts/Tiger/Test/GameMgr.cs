@@ -34,6 +34,10 @@ public class GameMgr : MonoBehaviour
     }
     public PlayerTest PlayerInit()
     {
+        if(player == null)
+        {
+            player = new PlayerTest();
+        }
         return player;
     }
 
