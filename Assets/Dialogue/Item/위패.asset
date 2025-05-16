@@ -17,6 +17,6 @@ MonoBehaviour:
     \uB0A0\uACFC \uC774\uB984\uC744 \uC4F0\uBA74 \uB41C\uB2E4. \uC9C0\uAE08\uC740
     \uC885\uC774\uC5D0 \uC544\uBB34\uAC83\uB3C4 \uC801\uD600\uC788\uC9C0 \uC54A\uB2E4."
   itemImage: {fileID: 21300000, guid: b605965d05c561f4783a916985a68e59, type: 3}
-  itemGetImage: {fileID: 21300000, guid: c905551d5a8928345b8de34a307eae2a, type: 3}
+  itemGetImage: {fileID: 21300000, guid: b605965d05c561f4783a916985a68e59, type: 3}
   isStack: 0
   quantity: 0

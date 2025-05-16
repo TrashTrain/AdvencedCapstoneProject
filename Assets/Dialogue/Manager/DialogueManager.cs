@@ -30,6 +30,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float textDelay;
     int lineCount = 0;      //대화 카운트
     int contextCount = 0;   //대사 카운트
+    int userChoice = 0;
+    int btnChoice1 = 1;
+    int btnChoice2 = 2;
+    int btnChoice3 = 3;
 
     string lastSpeaker = "";
     string lastDialogue = "";
@@ -73,6 +77,8 @@ public class DialogueManager : MonoBehaviour
                         else
                         {
                             EndDialogue();
+                            userChoice = 0;
+                           
                         }
                     }
                 }
@@ -128,6 +134,7 @@ public class DialogueManager : MonoBehaviour
         {
             ShowChoice();
             DialNextImage.gameObject.SetActive(true);
+            
         }
 
         else
@@ -179,14 +186,29 @@ public class DialogueManager : MonoBehaviour
         
     }
     void OnChoiceSelected(int nextLine)
-    {
+    {   
         go_ChoicePanel.SetActive(false);
         lineCount = nextLine - 1;
         contextCount = 0;
         txt_Dialogue.text = "";
-        Debug.Log(nextLine);
+        //Debug.Log(nextLine);
         StartCoroutine(TypeWriter());
         DialNextImage.gameObject.SetActive(false);
     }
-  
+    public void Choice1Selected()
+    {
+        userChoice = btnChoice1;
+        Debug.Log(userChoice);
+    }
+    public void Choice2Selected()
+    {
+        userChoice = btnChoice2;
+        Debug.Log(userChoice);
+    }
+    public void Choice3Selected()
+    {
+        userChoice = btnChoice3;
+        Debug.Log(userChoice);
+    }
+
 }

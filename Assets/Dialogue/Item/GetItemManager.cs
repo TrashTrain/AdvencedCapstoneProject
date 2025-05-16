@@ -10,17 +10,21 @@ public class GetItemManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI item_Text;
     [SerializeField] Image item_Image;
     [SerializeField] GameObject GetItemPanel;
-
-
+    [SerializeField] GameObject BackGround;
+    
+   
+    
     public void getIteminfo(Item item)
     {
         GetItemPanel.SetActive(true);
         item_Name.SetText(item.itemName);
         item_Text.SetText(item.itemText);
         item_Image.sprite = item.itemGetImage;
+        BackGround.gameObject.SetActive(true);
     }
     public void exitIteminfo()
     {
         GetItemPanel.SetActive(false);
+        BackGround.gameObject.SetActive(false);
     }
 }

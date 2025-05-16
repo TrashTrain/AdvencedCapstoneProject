@@ -8,7 +8,9 @@ public class AudioManager : MonoBehaviour
 {   
     public static AudioManager instance;
     [SerializeField] private AudioMixer audioMixer;
-
+    [SerializeField] Button btn_mute;
+    [SerializeField] Sprite muteOnImage;
+    [SerializeField] Sprite muteOffImage;
     private bool[] isMute=new bool[3];
     private float[] audioVolumes=new float[3];
     private bool isAllMuted = false;
@@ -16,6 +18,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
 
     }
     void Start()
@@ -85,8 +88,9 @@ public class AudioManager : MonoBehaviour
                 AudioType type = (AudioType)i;
                 if (!isMute[i])
                     SetAudioMute(type);
-            }
+            }   
             isAllMuted = true;
+           btn_mute.GetComponent<Image>().sprite=muteOffImage;
         }
         else
         {
@@ -98,6 +102,7 @@ public class AudioManager : MonoBehaviour
                     SetAudioMute(type);
             }
             isAllMuted = false;
+            btn_mute.GetComponent<Image>().sprite = muteOnImage;
         }
     }
 
