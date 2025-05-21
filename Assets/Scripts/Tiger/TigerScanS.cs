@@ -11,8 +11,8 @@ public class TigerScanS : MonoBehaviour
         Debug.Log("플레이어 감지");
         if (other.CompareTag("Player"))
         {
-            GetTiger.checkRange = 2;
-            GetTiger.TigerStateChanger();
+            GetTiger.tigerState = Tiger.TState.Idle;
+
         }
     }
     private void OnTriggerStay(Collider other)
@@ -21,16 +21,12 @@ public class TigerScanS : MonoBehaviour
         {
             Debug.Log("플레이어 감지중");
             GetTiger.playerT = other.transform;
-            GetTiger.TigerStateChanger();
-            
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("플레이어 감지 종료");
-        GetTiger.checkRange = 1;
-        //GameMgr.Instance.PlayerInit().SetUpBoundaryLevel();
         GetTiger.tigerState = Tiger.TState.Idle;
     }
 
