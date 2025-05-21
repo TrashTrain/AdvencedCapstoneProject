@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Handmade.meta
+guid: 33cb3b4b24b0bae438b37199136e63de
+folderAsset: yes
+========
 guid: 2828c7857c3e69d45b0f6fdcb25b2311
+>>>>>>>> main:Assets/Scenes/Player.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
