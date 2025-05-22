@@ -349,6 +349,39 @@ RectTransform:
   m_AnchoredPosition: {x: 6, y: -49.69999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &125143057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125143058}
+  m_Layer: 0
+  m_Name: Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &125143058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125143057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 413380196}
+  - {fileID: 1965704895}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &127251370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,6 +1872,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405526670}
   m_CullTransparentMesh: 1
+--- !u!1 &413380195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413380196}
+  - component: {fileID: 413380197}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &413380196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413380195}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 125143058}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &413380197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413380195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6169a878f9924d348919c68f70e4fea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "\uACF6\uAC10": {fileID: 11400000, guid: 91cd991fd985920458f793f9cbfed2dc, type: 2}
+  "\uB5A1": {fileID: 11400000, guid: be7660b4b07133c429ec78190da072a6, type: 2}
+  "\uC704\uD328": {fileID: 11400000, guid: deb6163afec0cb74a9ca9cf9eea9a869, type: 2}
+  "\uD638\uB9AC\uBCD1": {fileID: 11400000, guid: 6797edb565b78364fa133eaec1c122ea, type: 2}
+  "\uC591\uCD08": {fileID: 11400000, guid: fc47eae217e6f634eb3309fbb2cc4e3b, type: 2}
+  inventory: {fileID: 1896080597}
 --- !u!1 &485175300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4043,7 +4126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    csvFileName: "\uCC3D\uADC0 \uB9C8\uC744 \uC5D4\uB529(1)"
+    csvFileName: tt
     name: "\uC785\uC0B0"
     line: {x: 1, y: 22}
     dialogues:
@@ -4053,6 +4136,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4063,6 +4150,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4073,6 +4164,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4083,6 +4178,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4093,6 +4192,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4103,6 +4206,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4113,6 +4220,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4123,6 +4234,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4133,6 +4248,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4143,6 +4262,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4153,6 +4276,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4163,6 +4290,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4173,6 +4304,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4183,6 +4318,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4193,6 +4332,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4203,6 +4346,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4213,6 +4360,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4223,6 +4374,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4233,6 +4388,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4243,6 +4402,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4253,6 +4416,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -4263,6 +4430,10 @@ MonoBehaviour:
       choice1: 
       choice2: 
       choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
       choice1_Next: 0
       choice2_Next: 0
       choice3_Next: 0
@@ -5893,7 +6064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6515,7 +6686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6810,7 +6981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8151,7 +8322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8322,7 +8493,7 @@ AudioSource:
   m_GameObject: {fileID: 1814873196}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1271724377007486590, guid: eb0e73b5821a3fe499e7d6db3e0352ad, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4540789e9e188da4c853c34b2c20d5d4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -8830,6 +9001,55 @@ MonoBehaviour:
   getItemManager: {fileID: 383020494}
   GamQuantityText: {fileID: 1243303688}
   DduckQuantityText: {fileID: 1980964586}
+--- !u!1 &1965704894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1965704895}
+  - component: {fileID: 1965704896}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1965704895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965704894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 125143058}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1965704896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965704894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172b3721165718840ac9eda88ca90ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmSource: {fileID: 1814873198}
+  sfxSource: {fileID: 0}
+  etcSource: {fileID: 0}
+  soundLibrary:
+  - {fileID: 11400000, guid: 182b4358ab913524bb240386f48815f5, type: 2}
 --- !u!1 &1970263164
 GameObject:
   m_ObjectHideFlags: 0
@@ -9256,6 +9476,7 @@ MonoBehaviour:
   txt_Choice3: {fileID: 703144564}
   DialNextImage: {fileID: 998873836}
   textDelay: 0.03
+  lineCount: 0
 --- !u!1 &2072470052
 GameObject:
   m_ObjectHideFlags: 0
@@ -9320,7 +9541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10074,3 +10295,4 @@ SceneRoots:
   - {fileID: 1811700498}
   - {fileID: 373946736}
   - {fileID: 627311832}
+  - {fileID: 125143058}

@@ -24,9 +24,9 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
        
-        SetAudioVolume(AudioType.BGM, 0.5f);
-        SetAudioVolume(AudioType.Effect, 0.5f);
-        SetAudioVolume(AudioType.Voice, 0.5f);
+        SetAudioVolume(AudioType.BGM, 1.0f);
+        SetAudioVolume(AudioType.Effect, 1.0f);
+        SetAudioVolume(AudioType.Voice, 1.0f);
     }
     public void RegisterSlider(AudioType type, Slider slider)
     {

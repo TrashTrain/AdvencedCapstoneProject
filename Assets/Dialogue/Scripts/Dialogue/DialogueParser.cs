@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialougeParser : MonoBehaviour
 {
-   public Dialogue[] Parse(string _CSVFileName)
+    public Dialogue[] Parse(string _CSVFileName)
     {
         List<Dialogue> dialougeList = new List<Dialogue>(); //대화 리스트 생성
         TextAsset csvData = Resources.Load<TextAsset>(_CSVFileName); //csv파일 로드
@@ -18,18 +18,19 @@ public class DialougeParser : MonoBehaviour
             Dialogue dialogue = new Dialogue();     //대사 리스트 생성
 
             if (row[1].Trim() == "선택지")
-            { Debug.Log("선택지입니다.");
+            {  
                 dialogue.isChoice = true;
                 dialogue.contexts = new string[] { "" };
                 dialogue.choice1 = row[3];
                 dialogue.choice1_Next = int.Parse(row[4]);
-                dialogue.choice2 = row[5];
-                dialogue.choice2_Next = int.Parse(row[6]);
-                if (row.Length > 7 && !string.IsNullOrEmpty(row[7]) && !string.IsNullOrEmpty(row[8]))
-                {
-                    dialogue.choice3 = row[7];
-                    dialogue.choice3_Next = int.Parse(row[8]);
-                }
+                dialogue.choice1_Event = row[5].Trim();
+                dialogue.choice2 = row[6];
+                dialogue.choice2_Next = int.Parse(row[7]);
+                dialogue.choice2_Event = row[8].Trim();
+                dialogue.choice3 = row[9];
+                dialogue.choice3_Next = int.Parse(row[10]);
+                dialogue.choice3_Event = row[11].Trim();
+                
 
                 dialougeList.Add(dialogue);
                 i++;
@@ -39,10 +40,14 @@ public class DialougeParser : MonoBehaviour
             {
                 dialogue.name = row[1];     //등장인물 이름
                 List<string> contextList = new List<string>();
-                int parsedSkipLine=0;
-                if (row.Length > 9 && !string.IsNullOrEmpty(row[9]))
+                int parsedSkipLine = 0;
+                if (row.Length > 12 && !string.IsNullOrEmpty(row[12]))
                 {
-                    int.TryParse(row[9], out parsedSkipLine);
+                    int.TryParse(row[12], out parsedSkipLine);
+                }
+                if (row.Length > 13 && !string.IsNullOrEmpty(row[13]))
+                {
+                    dialogue.eventKey = row[13].Trim();
                 }
 
                 do
@@ -67,5 +72,5 @@ public class DialougeParser : MonoBehaviour
         return dialougeList.ToArray();
 
     }
-   
+
 }

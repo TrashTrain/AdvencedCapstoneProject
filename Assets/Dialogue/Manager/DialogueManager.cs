@@ -7,10 +7,11 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+
     [SerializeField] GameObject go_DialogueBar;
     [SerializeField] GameObject go_DialogueNameBar;
 
-    [SerializeField] TextMeshProUGUI txt_Dialogue;
+    [SerializeField] public TextMeshProUGUI txt_Dialogue;
     [SerializeField] TextMeshProUGUI txt_Name;
 
     [SerializeField] GameObject go_ChoicePanel;
@@ -28,32 +29,30 @@ public class DialogueManager : MonoBehaviour
     bool isNext = false;   //입력대기
     [Header("텍스트 출력 딜레이")]
     [SerializeField] float textDelay;
-    int lineCount = 0;      //대화 카운트
+    public int lineCount = 0;      //대화 카운트
     int contextCount = 0;   //대사 카운트
-    int userChoice = 0;
-    int btnChoice1 = 1;
-    int btnChoice2 = 2;
-    int btnChoice3 = 3;
+   
 
     string lastSpeaker = "";
     string lastDialogue = "";
     private void Start()
     {
         go_ChoicePanel.SetActive(false);
+
     }
     void Update()
     {
         if (isDialogue)
         {
-            
+
             if (isNext && !dialogues[lineCount].isChoice) // 선택지일 땐 무시
-            {   
+            {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     isNext = false;
                     DialNextImage.gameObject.SetActive(false);
                     txt_Dialogue.text = "";
-                    
+
                     if (++contextCount < dialogues[lineCount].contexts.Length)
                     {
                         StartCoroutine(TypeWriter());
@@ -77,8 +76,8 @@ public class DialogueManager : MonoBehaviour
                         else
                         {
                             EndDialogue();
-                            userChoice = 0;
-                           
+                            
+
                         }
                     }
                 }
@@ -97,44 +96,50 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
-        isDialogue=false;
+        isDialogue = false;
         contextCount = 0;
         lineCount = 0;
-        dialogues=null;
+        dialogues = null;
         SettingUI(false);
     }
     IEnumerator TypeWriter()
     {
+
+
         if (lineCount >= dialogues.Length)
         {
             EndDialogue();
             yield break;
         }
+        EventManager.Instance.TriggerEvent(dialogues[lineCount].eventKey);
+        
         SettingUI(true);
         string t_ReplaceText = dialogues[lineCount].contexts[contextCount];
         t_ReplaceText = t_ReplaceText.Replace("'", ","); //엑셀상에서 ' -> ,
 
-        
-        txt_Name.text=dialogues[lineCount].name;
-        
+
+        txt_Name.text = dialogues[lineCount].name;
+
         for (int i = 0; i < t_ReplaceText.Length; i++)
         {
+
             txt_Dialogue.text += t_ReplaceText[i];
             lastDialogue = txt_Dialogue.text;
             lastSpeaker = txt_Name.text;
             yield return new WaitForSeconds(textDelay);
         }
-        if (lineCount + 1 < dialogues.Length && dialogues[lineCount + 1].isChoice==true)    //다음 대사가 선택지면 space 스킵해 바로 다음 대사(선택지)로
+        if (lineCount + 1 < dialogues.Length && dialogues[lineCount + 1].isChoice == true)    //다음 대사가 선택지면 space 스킵해 바로 다음 대사(선택지)로
         {
-            lineCount++;  
-            contextCount = 0; 
-            StartCoroutine(TypeWriter());
+            lineCount++;
+            contextCount = 0;
+           // StartCoroutine(TypeWriter());
+          
         }
         if (dialogues[lineCount].isChoice)
         {
             ShowChoice();
             DialNextImage.gameObject.SetActive(true);
-            
+
         }
 
         else
@@ -142,8 +147,8 @@ public class DialogueManager : MonoBehaviour
             isNext = true;
             DialNextImage.gameObject.SetActive(true);
         }
-        
-       
+
+
 
     }
     void SettingUI(bool p_flag)
@@ -154,7 +159,7 @@ public class DialogueManager : MonoBehaviour
     void ShowChoice()
     {
         go_ChoicePanel.SetActive(true);
-
+       
         txt_Name.text = lastSpeaker;
         txt_Dialogue.text = lastDialogue;
 
@@ -163,7 +168,10 @@ public class DialogueManager : MonoBehaviour
             txt_Choice3.text = dialogues[lineCount].choice3;
             btn_Choice3.gameObject.SetActive(true);
             btn_Choice3.onClick.RemoveAllListeners();
-            btn_Choice3.onClick.AddListener(() => OnChoiceSelected(dialogues[lineCount].choice3_Next));
+            btn_Choice3.onClick.AddListener(() => {
+                OnChoiceSelected(dialogues[lineCount].choice3_Next);
+                EventManager.Instance.TriggerEvent(dialogues[lineCount - 1].choice3_Event);
+            });
         }
         else
         {
@@ -174,19 +182,27 @@ public class DialogueManager : MonoBehaviour
 
         txt_Choice1.text = dialogues[lineCount].choice1;
         txt_Choice2.text = dialogues[lineCount].choice2;
-       
+
 
         btn_Choice1.onClick.RemoveAllListeners();
         btn_Choice2.onClick.RemoveAllListeners();
-       
 
-        btn_Choice1.onClick.AddListener(() => OnChoiceSelected(dialogues[lineCount].choice1_Next));
-        btn_Choice2.onClick.AddListener(() => OnChoiceSelected(dialogues[lineCount].choice2_Next));
-        
-        
+
+        btn_Choice1.onClick.AddListener(() => {
+            OnChoiceSelected(dialogues[lineCount].choice1_Next);
+            //dialogues[lineCount].choice1_Event = "eat_dduck";
+            EventManager.Instance.TriggerEvent(dialogues[lineCount-1].choice1_Event);
+           
+        });
+        btn_Choice2.onClick.AddListener(() => {
+            OnChoiceSelected(dialogues[lineCount].choice2_Next);
+            EventManager.Instance.TriggerEvent(dialogues[lineCount-1].choice2_Event);
+        });
+
+
     }
     void OnChoiceSelected(int nextLine)
-    {   
+    {
         go_ChoicePanel.SetActive(false);
         lineCount = nextLine - 1;
         contextCount = 0;
@@ -195,20 +211,6 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeWriter());
         DialNextImage.gameObject.SetActive(false);
     }
-    public void Choice1Selected()
-    {
-        userChoice = btnChoice1;
-        Debug.Log(userChoice);
-    }
-    public void Choice2Selected()
-    {
-        userChoice = btnChoice2;
-        Debug.Log(userChoice);
-    }
-    public void Choice3Selected()
-    {
-        userChoice = btnChoice3;
-        Debug.Log(userChoice);
-    }
-
+   
+   
 }

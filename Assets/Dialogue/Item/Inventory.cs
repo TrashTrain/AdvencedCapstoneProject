@@ -28,10 +28,10 @@ public class Inventory : MonoBehaviour
     }
     public void Start()
     {
-        AddItem(testitem);
-        AddItem(testitem);
-        AddItem(testitem2);
-        AddItem(testitem2);
+        //AddItem(testitem);
+        //AddItem(testitem);
+        //AddItem(testitem2);
+        //AddItem(testitem2);
     }
 
     public void FreshSlot()
