@@ -31,11 +31,35 @@ public class EventManager : MonoBehaviour
                 break;
             case "eat_dduck":
                 Debug.Log("떡 먹기");
-                SoundManager.Instance.Stop("tutorial_bgm");
+                inventory.AddItem(곶감);
                 break;
             case "eat_gam":
                 Debug.Log("곶감 먹기");
                 inventory.UseItem("곶감");
+                break;
+            case "use_위패":
+                inventory.UseItem("위패");
+                break;
+            case "use_호리병":
+                inventory.UseItem("호리병");
+                break;
+            case "use_양초":
+                inventory.UseItem("양초");
+                break;
+            case "get_dduck":
+                inventory.AddItem(떡);
+                break;
+            case "get_gam":
+                inventory.AddItem(곶감);
+                break;
+            case "get_위패":
+                inventory.AddItem(위패);
+                break;
+            case "get_호리병":
+                inventory.AddItem(호리병);
+                break;
+            case "get_양초":
+                inventory.AddItem(양초);
                 break;
                 
         }

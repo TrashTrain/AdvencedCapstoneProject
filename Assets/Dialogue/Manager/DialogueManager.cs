@@ -111,6 +111,7 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             yield break;
         }
+        
         EventManager.Instance.TriggerEvent(dialogues[lineCount].eventKey);
         
         SettingUI(true);
@@ -170,7 +171,9 @@ public class DialogueManager : MonoBehaviour
             btn_Choice3.onClick.RemoveAllListeners();
             btn_Choice3.onClick.AddListener(() => {
                 OnChoiceSelected(dialogues[lineCount].choice3_Next);
-                EventManager.Instance.TriggerEvent(dialogues[lineCount - 1].choice3_Event);
+                
+                    EventManager.Instance.TriggerEvent(dialogues[lineCount - 1].choice3_Event);
+                
             });
         }
         else
@@ -191,12 +194,17 @@ public class DialogueManager : MonoBehaviour
         btn_Choice1.onClick.AddListener(() => {
             OnChoiceSelected(dialogues[lineCount].choice1_Next);
             //dialogues[lineCount].choice1_Event = "eat_dduck";
-            EventManager.Instance.TriggerEvent(dialogues[lineCount-1].choice1_Event);
+            Debug.Log(lineCount);
+            
+                EventManager.Instance.TriggerEvent(dialogues[lineCount-1].choice1_Event);
+            
            
         });
         btn_Choice2.onClick.AddListener(() => {
             OnChoiceSelected(dialogues[lineCount].choice2_Next);
-            EventManager.Instance.TriggerEvent(dialogues[lineCount-1].choice2_Event);
+            
+                EventManager.Instance.TriggerEvent(dialogues[lineCount - 1].choice2_Event);
+            
         });
 
 
