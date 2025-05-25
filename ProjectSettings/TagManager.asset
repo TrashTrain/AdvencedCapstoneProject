@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerScan
+  - UI
   layers:
   - Default
   - TransparentFX
