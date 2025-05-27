@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    
+
     [Tooltip("대사 치는 캐릭터 이름")]
     public string name;
 
@@ -14,9 +14,13 @@ public class Dialogue
 
     //선택지
     public bool isChoice;
-    public string choice1;  
+    public string choice1;
     public string choice2;
     public string choice3;
+    public string choice1_Event;
+    public string choice2_Event;
+    public string choice3_Event;
+    public string eventKey;
     public int choice1_Next;
     public int choice2_Next;
     public int choice3_Next;

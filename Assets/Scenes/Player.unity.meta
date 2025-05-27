@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Player.unity.meta
 guid: 7718f0d3572409449a9c36bf52ad8559
+========
+guid: 0490eb9b9f17b3940a0a01da93d3042d
+folderAsset: yes
+>>>>>>>> SMS_Event:Assets/Dialogue/Event.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
