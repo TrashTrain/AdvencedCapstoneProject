@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMgr : MonoBehaviour
 {
@@ -44,5 +45,11 @@ public class GameMgr : MonoBehaviour
     public void SlowMotion(float timeScale)
     {
         Time.timeScale = timeScale;
+    }
+
+    public void OnClickStartBtn()
+    {
+        Debug.Log("ChangeScene");
+        SceneManager.LoadScene("InGameSceneTest");
     }
 }
