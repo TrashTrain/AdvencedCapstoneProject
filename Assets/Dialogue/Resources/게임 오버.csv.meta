@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/AudioSource.meta
+guid: dcde35e35ac1cbf459974b9ab89b8ef4
+folderAsset: yes
+DefaultImporter:
+========
 guid: eebacf285256d7049b0b528877155890
 TextScriptImporter:
+>>>>>>>> SMS_Event:Assets/Dialogue/Resources/게임 오버.csv.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
