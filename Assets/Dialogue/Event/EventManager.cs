@@ -27,11 +27,11 @@ public class EventManager : MonoBehaviour
         switch (eventKey)
         {
             case "test_sound":
-                SoundManager.Instance.Play("tutorial_bgm");
+                SoundManager.Instance.Play("²Ü²©");
                 break;
             case "eat_dduck":
                 Debug.Log("¶± ¸Ô±â");
-                inventory.AddItem(°ù°¨);
+                inventory.UseItem("¶±");
                 break;
             case "eat_gam":
                 Debug.Log("°ù°¨ ¸Ô±â");
@@ -60,6 +60,9 @@ public class EventManager : MonoBehaviour
                 break;
             case "get_¾çÃÊ":
                 inventory.AddItem(¾çÃÊ);
+                break;
+            case "clickSound":
+                SoundManager.Instance.Play("Å¬¸¯");
                 break;
                 
         }
