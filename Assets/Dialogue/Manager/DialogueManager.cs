@@ -195,7 +195,7 @@ public class DialogueManager : MonoBehaviour
             OnChoiceSelected(dialogues[lineCount].choice1_Next);
             //dialogues[lineCount].choice1_Event = "eat_dduck";
             Debug.Log(lineCount);
-            
+            if (lineCount != 0)
                 EventManager.Instance.TriggerEvent(dialogues[lineCount-1].choice1_Event);
             
            
@@ -203,6 +203,7 @@ public class DialogueManager : MonoBehaviour
         btn_Choice2.onClick.AddListener(() => {
             OnChoiceSelected(dialogues[lineCount].choice2_Next);
             
+            if (lineCount!=0)
                 EventManager.Instance.TriggerEvent(dialogues[lineCount - 1].choice2_Event);
             
         });
@@ -211,10 +212,17 @@ public class DialogueManager : MonoBehaviour
     }
     void OnChoiceSelected(int nextLine)
     {
+        
         go_ChoicePanel.SetActive(false);
-        lineCount = nextLine - 1;
+        
         contextCount = 0;
         txt_Dialogue.text = "";
+        if (nextLine == 9999)
+        {
+            EndDialogue();
+            return;
+        }
+        lineCount = nextLine - 1;
         //Debug.Log(nextLine);
         StartCoroutine(TypeWriter());
         DialNextImage.gameObject.SetActive(false);
