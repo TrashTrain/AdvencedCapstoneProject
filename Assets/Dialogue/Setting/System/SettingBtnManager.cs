@@ -26,14 +26,17 @@ public class SettingBtnManager : MonoBehaviour
     {
         if (isOpen == false)
         {
+            
             SettingPanel.SetActive(true);
             isOpen = true;
             originbtn.gameObject.SetActive(false);
             backbtn.gameObject.SetActive(true);
             BackGround.gameObject.SetActive(true);
+
 }
         else if (isOpen == true)
         {
+            
             SettingPanel.SetActive(false);
             isOpen=false;
             originbtn.gameObject.SetActive(true);
