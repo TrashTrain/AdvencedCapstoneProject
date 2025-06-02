@@ -25,6 +25,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Image DialNextImage;
     Dialogue[] dialogues;
 
+    [SerializeField] GameObject btn_Start;
     bool isDialogue = false;//대화중 T/F
     bool isNext = false;   //입력대기
     [Header("텍스트 출력 딜레이")]
@@ -46,10 +47,10 @@ public class DialogueManager : MonoBehaviour
     {
         if (isDialogue)
         {
-
+            btn_Start.SetActive(false);
             if (isNext && !dialogues[lineCount].isChoice) // 선택지일 땐 무시
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
                     isNext = false;
                     DialNextImage.gameObject.SetActive(false);
@@ -102,12 +103,12 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
-        TestPlayer.isPlayerMove = true;
-        TestPlayer.isPlayerJump = true;
         isDialogue = false;
         contextCount = 0;
         lineCount = 0;
         dialogues = null;
+        TestPlayer.isPlayerMove = true;
+        TestPlayer.isPlayerJump = true;
         SettingUI(false);
     }
     IEnumerator TypeWriter()

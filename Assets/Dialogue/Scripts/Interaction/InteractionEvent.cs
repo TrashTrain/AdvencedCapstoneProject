@@ -25,6 +25,7 @@ public class InteractionEvent : MonoBehaviour
         //    dialogueManager.ShowDialogue(dialogue.dialogues);
             
         //}
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,6 +41,15 @@ public class InteractionEvent : MonoBehaviour
         {
             TestPlayer.isPlayerJump = false;
             dialogue.dialogues = GetDialogue();
+
+            //vr
+            //button.GetComponent<Button>().onClick.AddListener(() =>
+            //{
+            //    button.SetActive(false);
+            //    TestPlayer.isPlayerMove = false;
+            //    dialogueManager.ShowDialogue(dialogue.dialogues);
+            //});
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 button.SetActive(false);
