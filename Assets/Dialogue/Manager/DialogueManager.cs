@@ -35,6 +35,8 @@ public class DialogueManager : MonoBehaviour
 
     string lastSpeaker = "";
     string lastDialogue = "";
+
+
     private void Start()
     {
         go_ChoicePanel.SetActive(false);
@@ -51,10 +53,12 @@ public class DialogueManager : MonoBehaviour
                 {
                     isNext = false;
                     DialNextImage.gameObject.SetActive(false);
+
                     txt_Dialogue.text = "";
 
                     if (++contextCount < dialogues[lineCount].contexts.Length)
                     {
+                        StopAllCoroutines();
                         StartCoroutine(TypeWriter());
                     }
                     else
@@ -71,6 +75,7 @@ public class DialogueManager : MonoBehaviour
 
                         if (lineCount < dialogues.Length)
                         {
+                            StopAllCoroutines();
                             StartCoroutine(TypeWriter());
                         }
                         else
@@ -91,11 +96,14 @@ public class DialogueManager : MonoBehaviour
         txt_Name.text = "";
         dialogues = P_dialogues;
         SettingUI(true);
+        StopAllCoroutines();
         StartCoroutine(TypeWriter());
 
     }
     void EndDialogue()
     {
+        TestPlayer.isPlayerMove = true;
+        TestPlayer.isPlayerJump = true;
         isDialogue = false;
         contextCount = 0;
         lineCount = 0;
@@ -105,13 +113,12 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeWriter()
     {
 
-
         if (lineCount >= dialogues.Length)
         {
             EndDialogue();
             yield break;
         }
-        
+
         EventManager.Instance.TriggerEvent(dialogues[lineCount].eventKey);
         
         SettingUI(true);
@@ -120,7 +127,7 @@ public class DialogueManager : MonoBehaviour
 
 
         txt_Name.text = dialogues[lineCount].name;
-
+        txt_Dialogue.text = "";     // √ ±‚»≠
         for (int i = 0; i < t_ReplaceText.Length; i++)
         {
 
@@ -148,8 +155,6 @@ public class DialogueManager : MonoBehaviour
             isNext = true;
             DialNextImage.gameObject.SetActive(true);
         }
-
-
 
     }
     void SettingUI(bool p_flag)
@@ -224,6 +229,7 @@ public class DialogueManager : MonoBehaviour
         }
         lineCount = nextLine - 1;
         //Debug.Log(nextLine);
+        StopAllCoroutines();
         StartCoroutine(TypeWriter());
         DialNextImage.gameObject.SetActive(false);
     }
