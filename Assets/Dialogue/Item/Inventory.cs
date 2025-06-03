@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +16,10 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GetItemManager getItemManager;
     [SerializeField] TextMeshProUGUI GamQuantityText;
     [SerializeField] TextMeshProUGUI DduckQuantityText;
+
+    private Item ggotgam;
+    private Item Dduck;
+
 #if UNITY_EDITOR
     private void OnValidate()
     {
@@ -28,14 +33,12 @@ public class Inventory : MonoBehaviour
     }
     public void Start()
     {
-        //AddItem(testitem);
-        //AddItem(testitem);
-        //AddItem(testitem2);
-        //AddItem(testitem2);
+
     }
 
     public void FreshSlot()
     {
+        
         int i = 0;
         for (; i < items.Count && i < slots.Length; i++)
         {
@@ -45,10 +48,10 @@ public class Inventory : MonoBehaviour
         {
             slots[i].item = null;
         }
-        Item ggotgam = items.Find(item => item.itemName == "°ù°¨");
+        ggotgam = items.Find(item => item.itemName == "°ù°¨");
         GamQuantityText.text = ggotgam != null ? ggotgam.quantity.ToString() : "0";
 
-        Item Dduck = items.Find(item => item.itemName == "¶±");
+        Dduck = items.Find(item => item.itemName == "¶±");
         DduckQuantityText.text = Dduck != null ? Dduck.quantity.ToString() : "0";
     }
 

@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 208182214}
   - component: {fileID: 208182216}
   - component: {fileID: 208182215}
-  - component: {fileID: 208182217}
+  - component: {fileID: 208182218}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -1234,7 +1234,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208182213}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &208182217
+--- !u!114 &208182218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1243,9 +1243,324 @@ MonoBehaviour:
   m_GameObject: {fileID: 208182213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b083a87b7c2861468681c1f59bb6c04, type: 3}
+  m_Script: {fileID: 11500000, guid: a9fc7c78f19d15d4eaf90261b75bb3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    csvFileName: "\uD29C\uD1A0\uB9AC\uC5BC \uBA39\uAE30"
+    line: {x: 1, y: 22}
+    dialogues:
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+    - name: 
+      contexts: []
+      isChoice: 0
+      choice1: 
+      choice2: 
+      choice3: 
+      choice1_Event: 
+      choice2_Event: 
+      choice3_Event: 
+      eventKey: 
+      choice1_Next: 0
+      choice2_Next: 0
+      choice3_Next: 0
+      skipLine: 0
+  button: {fileID: 1455941765}
+  checkDestroy: 0
+  dialogueManager: {fileID: 151977223}
 --- !u!1001 &241109857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1438,6 +1753,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5963840692128820872, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343889827601448526, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7376082594070460174, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
@@ -2632,6 +2951,87 @@ Transform:
   - {fileID: 881130388}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &458783515
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5214335529546661170, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654619, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.022
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654619, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.014
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.4672
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.4672
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.4672
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.39079
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 59.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9312807
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.3643026
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 42.729
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623446654623, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745562623447073471, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
+      propertyPath: m_Name
+      value: prefab_beech_forest_stones_01_1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 244fe7240ba55ae4aab622581df24828, type: 3}
 --- !u!1 &481663518
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,6 +3675,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7695f3318435444b8b9bc7e54e96d6d, type: 3}
+--- !u!1001 &668640363
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7775791737395211612, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_Name
+      value: prefab_beech_forest_stones_01_8 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.4672
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.4672
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.4672
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.088652
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.43224
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 58.67467
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96516263
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.26165077
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -30.336
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775791737395245436, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649203252957004625, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cccbc50d35fd3ab4fa5f0f1b5f730051, type: 3}
 --- !u!1 &678623094
 GameObject:
   m_ObjectHideFlags: 0
@@ -8925,3 +9398,5 @@ SceneRoots:
   - {fileID: 27522696}
   - {fileID: 976956767}
   - {fileID: 1523669720}
+  - {fileID: 458783515}
+  - {fileID: 668640363}

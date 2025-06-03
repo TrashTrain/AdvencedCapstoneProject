@@ -114,6 +114,7 @@ public class DialogueManager : MonoBehaviour
         isDialogue = false;
         contextCount = 0;
         lineCount = 0;
+        npcObject.GetComponent<InteractionEvent>().npcCheckIdx++;
         dialogues = null;
         DialNextImage.gameObject.SetActive(false);  
         TestPlayer.isPlayerMove = true;

@@ -24,6 +24,7 @@ public class TestPlayer : MonoBehaviour
     public static bool isPlayerJump = true;
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         controller = GetComponent<CharacterController>();
     }
 

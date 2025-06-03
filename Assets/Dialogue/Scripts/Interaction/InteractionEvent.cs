@@ -7,10 +7,11 @@ public class InteractionEvent : MonoBehaviour
 {
     
    
-    [SerializeField] DialogueEvent dialogue;
+    public DialogueEvent dialogue;
 
     public GameObject button;
     public bool checkDestroy = false;
+    public int npcCheckIdx = 0;
 
     [SerializeField]private DialogueManager dialogueManager;
 

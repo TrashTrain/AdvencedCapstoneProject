@@ -18,7 +18,7 @@ public class EventManager : MonoBehaviour
     }
     public void Start()
     {
-       
+
     }
 
     public void TriggerEvent(string eventKey)
@@ -61,6 +61,9 @@ public class EventManager : MonoBehaviour
                 break;
             case "get_양초":
                 inventory.AddItem(양초);
+                break;
+            case "sleep":
+                GameMgr.Instance.SceneLoader("InGameSceneTest");
                 break;
             case "clickSound":
                 SoundManager.Instance.Play("클릭");
