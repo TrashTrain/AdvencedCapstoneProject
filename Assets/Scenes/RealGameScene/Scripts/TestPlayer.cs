@@ -29,6 +29,15 @@ public class TestPlayer : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            isPlayerMove = false;
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            isPlayerMove = true;
+        }
+        Debug.Log(isPlayerMove);
         if (!isPlayerMove)
             return;
         // ¹Ù´Ú Ã¼Å©

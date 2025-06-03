@@ -50,6 +50,11 @@ public class GameMgr : MonoBehaviour
     public void OnClickStartBtn()
     {
         Debug.Log("ChangeScene");
-        LoadingScene.LoadScene("InGameSceneTest");
+        LoadingScene.LoadScene("TutorialScene");
+    }
+
+    public void SceneLoader(string sceneName)
+    {
+        LoadingScene.LoadScene(sceneName);
     }
 }

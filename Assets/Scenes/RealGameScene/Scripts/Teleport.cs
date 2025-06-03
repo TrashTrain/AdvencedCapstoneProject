@@ -7,5 +7,6 @@ public class Teleport : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("teleport¥Í¿Ω");
+        GameMgr.Instance.SceneLoader("InGameSceneTest");
     }
 }

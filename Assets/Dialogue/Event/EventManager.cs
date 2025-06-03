@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
     [SerializeField] Item 위패;
     [SerializeField] Item 호리병;
     [SerializeField] Item 양초;
+    public Item 종;
     public static EventManager Instance;
     public Inventory inventory;
     private void Awake()

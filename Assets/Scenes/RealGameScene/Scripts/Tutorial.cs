@@ -6,16 +6,23 @@ public class Tutorial : MonoBehaviour
 {
     public GameObject tutorialWall;
     public GameObject tutorialMsg;
+    public GameObject tutorialEvent;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform leftDoor;
+    public Transform rightDoor;
+    public static int tutorialIdx = 0;
+
 
     // Update is called once per frame
     void Update()
     {
+        if(tutorialIdx >= 3)
+        {
+            leftDoor.rotation = Quaternion.Lerp(leftDoor.rotation, Quaternion.Euler(0, 20f, 0), 1f * Time.deltaTime);
+            rightDoor.rotation = Quaternion.Lerp(rightDoor.rotation, Quaternion.Euler(0, -20f, 0), 1f * Time.deltaTime);
+            Destroy(tutorialEvent);
+        }
+        
         
     }
 }

@@ -10,6 +10,7 @@ public class InteractionEvent : MonoBehaviour
     [SerializeField] DialogueEvent dialogue;
 
     public GameObject button;
+    public bool checkDestroy = false;
 
     [SerializeField]private DialogueManager dialogueManager;
 
@@ -33,6 +34,12 @@ public class InteractionEvent : MonoBehaviour
         if (other.tag == "Player")
         {
             button.SetActive(true);
+            if (Tutorial.tutorialIdx == 0)
+            {
+                button.SetActive(false);
+                TestPlayer.isPlayerMove = false;
+                dialogueManager.ShowDialogue(dialogue.dialogues, gameObject);
+            }
         }
     }
     private void OnTriggerStay(Collider other)
@@ -54,7 +61,7 @@ public class InteractionEvent : MonoBehaviour
             {
                 button.SetActive(false);
                 TestPlayer.isPlayerMove = false;
-                dialogueManager.ShowDialogue(dialogue.dialogues);
+                dialogueManager.ShowDialogue(dialogue.dialogues, gameObject);
             }
         }
         else

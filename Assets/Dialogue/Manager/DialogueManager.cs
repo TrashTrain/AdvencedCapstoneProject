@@ -25,7 +25,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Image DialNextImage;
     Dialogue[] dialogues;
 
-    [SerializeField] GameObject btn_Start;
+    private GameObject npcObject;
+
     bool isDialogue = false;//대화중 T/F
     bool isNext = false;   //입력대기
     [Header("텍스트 출력 딜레이")]
@@ -47,7 +48,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (isDialogue)
         {
-            btn_Start.SetActive(false);
+
             if (isNext && !dialogues[lineCount].isChoice) // 선택지일 땐 무시
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
@@ -90,9 +91,10 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
-    public void ShowDialogue(Dialogue[] P_dialogues)
+    public void ShowDialogue(Dialogue[] P_dialogues, GameObject gameObject)
     {
         isDialogue = true;
+        npcObject = gameObject;
         txt_Dialogue.text = "";
         txt_Name.text = "";
         dialogues = P_dialogues;
@@ -101,12 +103,19 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeWriter());
 
     }
+
+    // 대화 끝
     void EndDialogue()
     {
+        Tutorial.tutorialIdx++;
+        Debug.Log("TutorialIndex : " + Tutorial.tutorialIdx);
+        if (npcObject.GetComponent<InteractionEvent>().checkDestroy)
+            Destroy(npcObject.gameObject);
         isDialogue = false;
         contextCount = 0;
         lineCount = 0;
         dialogues = null;
+        DialNextImage.gameObject.SetActive(false);  
         TestPlayer.isPlayerMove = true;
         TestPlayer.isPlayerJump = true;
         SettingUI(false);
@@ -225,6 +234,11 @@ public class DialogueManager : MonoBehaviour
         txt_Dialogue.text = "";
         if (nextLine == 9999)
         {
+            if (Tutorial.tutorialIdx == 0)
+            {
+                Tutorial.tutorialIdx = 5;
+                EventManager.Instance.inventory.AddItem(EventManager.Instance.종);
+            }
             EndDialogue();
             return;
         }
