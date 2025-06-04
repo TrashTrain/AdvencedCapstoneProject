@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8098169881513260187, guid: b80ef1b4bb4cba240b69a5d984f9af1c, type: 3}
       propertyPath: m_Name
-      value: Wooden_Shrine_Marker_0518131137_texture
+      value: Ancestral_Tablet
       objectReference: {fileID: 0}
     - target: {fileID: 3447742079981357586, guid: b80ef1b4bb4cba240b69a5d984f9af1c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3447742079981357586, guid: b80ef1b4bb4cba240b69a5d984f9af1c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3447742079981357586, guid: b80ef1b4bb4cba240b69a5d984f9af1c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3447742079981357586, guid: b80ef1b4bb4cba240b69a5d984f9af1c, type: 3}
       propertyPath: m_LocalPosition.x
