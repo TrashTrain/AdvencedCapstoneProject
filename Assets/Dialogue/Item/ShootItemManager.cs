@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class ShootItemManager : MonoBehaviour
 {
-    [SerializeField] Inventory inventory;
-  
+
    public void UseGam()
     {
-        inventory.UseItem("°ù°¨");
+        EventManager.Instance.inventory.UseItem("°ù°¨");
     }
    public void UseDduck()
     {
-        inventory.UseItem("¶±");
+        EventManager.Instance.inventory.UseItem("¶±");
     }
 
 

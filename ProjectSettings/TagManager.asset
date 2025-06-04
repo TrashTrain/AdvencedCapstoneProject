@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerScan
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -12,8 +13,8 @@ TagManager:
   - Teleport
   - Water
   - UI
-  - 
-  - 
+  - PostProcessing
+  - Ground
   - 
   - 
   - 

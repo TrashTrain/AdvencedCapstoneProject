@@ -54,7 +54,8 @@ public class DialougeParser : MonoBehaviour
 
                 do
                 {
-                    contextList.Add(row[2]);
+                    if (row.Length > 2)
+                        contextList.Add(row[2]);
 
                     if (++i < data.Length)
                     {

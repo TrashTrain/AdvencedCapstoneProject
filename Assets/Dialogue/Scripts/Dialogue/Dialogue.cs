@@ -31,7 +31,6 @@ public class Dialogue
 public class DialogueEvent
 {
     public string csvFileName;
-    public string name;
 
     public Vector2 line;
     public Dialogue[] dialogues;

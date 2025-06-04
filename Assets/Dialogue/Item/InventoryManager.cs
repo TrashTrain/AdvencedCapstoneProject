@@ -13,6 +13,27 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Button close_btn;
     [SerializeField] private Button open_btn;
 
+    private void Update()
+    {
+        if (inventory.items.Count > 0)
+        {
+            miniSlot.item = inventory.items[0];
+        }
+        else
+        {
+            miniSlot.item = null;
+        }
+        inventory.FreshSlot();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            
+            EventManager.Instance.TriggerEvent("clickSound");
+            fullInventoryUI.SetActive(!fullInventoryUI.activeSelf);
+            miniSlotUI.SetActive(!miniSlotUI.activeSelf);
+            open_btn.gameObject.SetActive(!open_btn.gameObject.activeSelf);
+            close_btn.gameObject.SetActive(!close_btn.gameObject.activeSelf);
+        }
+    }
     public void OpenInventory()
     {
         EventManager.Instance.TriggerEvent("clickSound");
