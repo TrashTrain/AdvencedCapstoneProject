@@ -13,6 +13,7 @@ public class DasabaseManager : MonoBehaviour
 
     public static bool isFinish = false;
 
+
    void Awake()
     {
         if(instance == null)

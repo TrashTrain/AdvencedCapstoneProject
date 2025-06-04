@@ -21,10 +21,12 @@ public class GetItemManager : MonoBehaviour
         item_Text.SetText(item.itemText);
         item_Image.sprite = item.itemGetImage;
         BackGround.gameObject.SetActive(true);
+        //DasabaseManager.instance.dialogue.ChangeRayCast();
     }
     public void exitIteminfo()
     {
         GetItemPanel.SetActive(false);
         BackGround.gameObject.SetActive(false);
+        //DasabaseManager.instance.dialogue.ChangeRayCast();
     }
 }

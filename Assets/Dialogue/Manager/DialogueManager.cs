@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -27,13 +28,15 @@ public class DialogueManager : MonoBehaviour
 
     private GameObject npcObject;
 
+    public GameObject ui;
+
     bool isDialogue = false;//대화중 T/F
     bool isNext = false;   //입력대기
     [Header("텍스트 출력 딜레이")]
     [SerializeField] float textDelay;
     public int lineCount = 0;      //대화 카운트
     int contextCount = 0;   //대사 카운트
-   
+
 
     string lastSpeaker = "";
     string lastDialogue = "";
@@ -83,10 +86,53 @@ public class DialogueManager : MonoBehaviour
                         else
                         {
                             EndDialogue();
-                            
+
 
                         }
                     }
+                }
+            }
+        }
+    }
+
+    public void OnDialogClick()
+    {
+        
+        if (isNext && !dialogues[lineCount].isChoice) // 선택지일 땐 무시
+        {
+
+            isNext = false;
+            DialNextImage.gameObject.SetActive(false);
+
+            txt_Dialogue.text = "";
+
+            if (++contextCount < dialogues[lineCount].contexts.Length)
+            {
+                StopAllCoroutines();
+                StartCoroutine(TypeWriter());
+            }
+            else
+            {
+                contextCount = 0;
+                if (dialogues[lineCount].skipLine != 0)
+                {
+                    lineCount = dialogues[lineCount].skipLine - 1; // CSV 기준이 1부터일 경우 -1 해줘야 맞음
+                }
+                else
+                {
+                    lineCount++;
+                }
+
+                if (lineCount < dialogues.Length)
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(TypeWriter());
+                }
+                else
+                {
+                    EndDialogue();
+
+
                 }
             }
         }
@@ -104,6 +150,10 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    public void ChangeRayCast()
+    {
+        ui.GetComponent<TrackedDeviceGraphicRaycaster>().enabled = !ui.GetComponent<TrackedDeviceGraphicRaycaster>().enabled;
+    }
     // 대화 끝
     void EndDialogue()
     {
@@ -116,9 +166,10 @@ public class DialogueManager : MonoBehaviour
         lineCount = 0;
         npcObject.GetComponent<InteractionEvent>().npcCheckIdx++;
         dialogues = null;
-        DialNextImage.gameObject.SetActive(false);  
+        DialNextImage.gameObject.SetActive(false);
         TestPlayer.isPlayerMove = true;
         TestPlayer.isPlayerJump = true;
+        //ChangeRayCast();
         SettingUI(false);
     }
     IEnumerator TypeWriter()
@@ -131,7 +182,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         EventManager.Instance.TriggerEvent(dialogues[lineCount].eventKey);
-        
+
         SettingUI(true);
         string t_ReplaceText = dialogues[lineCount].contexts[contextCount];
         t_ReplaceText = t_ReplaceText.Replace("'", ","); //엑셀상에서 ' -> ,
@@ -151,8 +202,8 @@ public class DialogueManager : MonoBehaviour
         {
             lineCount++;
             contextCount = 0;
-           // StartCoroutine(TypeWriter());
-          
+            // StartCoroutine(TypeWriter());
+
         }
         if (dialogues[lineCount].isChoice)
         {
@@ -176,7 +227,7 @@ public class DialogueManager : MonoBehaviour
     void ShowChoice()
     {
         go_ChoicePanel.SetActive(true);
-       
+
         txt_Name.text = lastSpeaker;
         txt_Dialogue.text = lastDialogue;
 
@@ -185,11 +236,12 @@ public class DialogueManager : MonoBehaviour
             txt_Choice3.text = dialogues[lineCount].choice3;
             btn_Choice3.gameObject.SetActive(true);
             btn_Choice3.onClick.RemoveAllListeners();
-            btn_Choice3.onClick.AddListener(() => {
+            btn_Choice3.onClick.AddListener(() =>
+            {
                 OnChoiceSelected(dialogues[lineCount].choice3_Next);
-                
-                    EventManager.Instance.TriggerEvent(dialogues[lineCount - 1].choice3_Event);
-                
+
+                EventManager.Instance.TriggerEvent(dialogues[lineCount - 1].choice3_Event);
+
             });
         }
         else
@@ -207,30 +259,32 @@ public class DialogueManager : MonoBehaviour
         btn_Choice2.onClick.RemoveAllListeners();
 
 
-        btn_Choice1.onClick.AddListener(() => {
+        btn_Choice1.onClick.AddListener(() =>
+        {
             OnChoiceSelected(dialogues[lineCount].choice1_Next);
             //dialogues[lineCount].choice1_Event = "eat_dduck";
             Debug.Log(lineCount);
             if (lineCount != 0)
-                EventManager.Instance.TriggerEvent(dialogues[lineCount-1].choice1_Event);
-            
-           
+                EventManager.Instance.TriggerEvent(dialogues[lineCount - 1].choice1_Event);
+
+
         });
-        btn_Choice2.onClick.AddListener(() => {
+        btn_Choice2.onClick.AddListener(() =>
+        {
             OnChoiceSelected(dialogues[lineCount].choice2_Next);
-            
-            if (lineCount!=0)
+
+            if (lineCount != 0)
                 EventManager.Instance.TriggerEvent(dialogues[lineCount - 1].choice2_Event);
-            
+
         });
 
 
     }
     void OnChoiceSelected(int nextLine)
     {
-        
+
         go_ChoicePanel.SetActive(false);
-        
+
         contextCount = 0;
         txt_Dialogue.text = "";
         if (nextLine == 9999)
@@ -249,6 +303,6 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeWriter());
         DialNextImage.gameObject.SetActive(false);
     }
-   
-   
+
+
 }

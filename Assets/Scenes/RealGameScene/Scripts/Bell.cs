@@ -31,5 +31,6 @@ public class Bell : MonoBehaviour
     public void OnGribBell()
     {
         inven.AddItem(bell);
+        //DasabaseManager.instance.dialogue.ChangeRayCast();
     }
 }

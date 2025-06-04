@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class InteractionEvent : MonoBehaviour
 {
@@ -30,16 +31,26 @@ public class InteractionEvent : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        //button.GetComponent<Button>().onClick.AddListener(OnClickDialogStart);
+    }
+
+    void OnClickDialogStart()
+    {
+        button.SetActive(false);
+        TestPlayer.isPlayerMove = false;
+        dialogueManager.ShowDialogue(dialogue.dialogues, gameObject);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            //dialogueManager.ChangeRayCast();
             button.SetActive(true);
             if (Tutorial.tutorialIdx == 0)
             {
-                button.SetActive(false);
-                TestPlayer.isPlayerMove = false;
-                dialogueManager.ShowDialogue(dialogue.dialogues, gameObject);
+                OnClickDialogStart();
             }
         }
     }
@@ -51,18 +62,16 @@ public class InteractionEvent : MonoBehaviour
             dialogue.dialogues = GetDialogue();
 
             //vr
-            //button.GetComponent<Button>().onClick.AddListener(() =>
-            //{
-            //    button.SetActive(false);
-            //    TestPlayer.isPlayerMove = false;
-            //    dialogueManager.ShowDialogue(dialogue.dialogues);
-            //});
-
-            if (Input.GetKeyDown(KeyCode.Space))
+            button.GetComponent<Button>().onClick.AddListener(() =>
             {
                 button.SetActive(false);
                 TestPlayer.isPlayerMove = false;
                 dialogueManager.ShowDialogue(dialogue.dialogues, gameObject);
+            });
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                OnClickDialogStart();
             }
         }
         else
