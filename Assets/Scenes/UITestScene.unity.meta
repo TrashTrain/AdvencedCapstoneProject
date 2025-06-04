@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/UITestScene.unity.meta
 guid: f074efe7b38374744bc63304d5062e22
+========
+guid: 99c9720ab356a0642a771bea13969a05
+>>>>>>>> main:Assets/Scenes/pswFolder/1 Start Scene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

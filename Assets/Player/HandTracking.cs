@@ -13,9 +13,9 @@ public class HandTracking : MonoBehaviour
     void Update()
     {
         float triggerValue = pinchAnimaionAction.action.ReadValue<float>();
-        HandAnimator.SetFloat("Trigger", triggerValue);
         float gripValue = gripAnimtionAction.action.ReadValue<float>();
+
+        HandAnimator.SetFloat("Trigger", triggerValue);
         HandAnimator.SetFloat("Grip", gripValue);
-        
     }
 }
