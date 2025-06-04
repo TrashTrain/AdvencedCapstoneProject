@@ -22,9 +22,21 @@ public class TestPlayer : MonoBehaviour
 
     public static bool isPlayerMove = true;
     public static bool isPlayerJump = true;
+
+    private static TestPlayer instance = null;
+
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         controller = GetComponent<CharacterController>();
     }
 
