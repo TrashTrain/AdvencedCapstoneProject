@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/pswFolder/Player.unity
-    guid: 7718f0d3572409449a9c36bf52ad8559
+    path: Assets/Scenes/RealGameScene/GameStart.unity
+    guid: 2c40af438a2072c4aadbbf4fe3dc0cc8
+  - enabled: 1
+    path: Assets/Scenes/RealGameScene/InGameSceneTest.unity
+    guid: 332ebb82b7e6b504b8f843bfb94ef634
+  - enabled: 1
+    path: Assets/Scenes/RealGameScene/LoadingScene.unity
+    guid: 7975a0d6b84e4cc4b86765b7ccefeba9
+  - enabled: 1
+    path: Assets/Scenes/RealGameScene/TutorialScene.unity
+    guid: a28e6d3f5cf9f74498ac482604bf72e9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 9122b9d4908284548aebfb79225234ee, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 18a698e52d292324bbf05f5739f4e393, type: 2}

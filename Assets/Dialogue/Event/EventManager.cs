@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
     [SerializeField] Item 위패;
     [SerializeField] Item 호리병;
     [SerializeField] Item 양초;
+    public Item 종;
     public static EventManager Instance;
     public Inventory inventory;
     private void Awake()
@@ -17,7 +18,7 @@ public class EventManager : MonoBehaviour
     }
     public void Start()
     {
-       
+
     }
 
     public void TriggerEvent(string eventKey)
@@ -60,6 +61,9 @@ public class EventManager : MonoBehaviour
                 break;
             case "get_양초":
                 inventory.AddItem(양초);
+                break;
+            case "sleep":
+                GameMgr.Instance.SceneLoader("InGameSceneTest");
                 break;
             case "clickSound":
                 SoundManager.Instance.Play("클릭");
