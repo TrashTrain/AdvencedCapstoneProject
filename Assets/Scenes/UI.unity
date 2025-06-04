@@ -414,6 +414,7 @@ MonoBehaviour:
   "\uC704\uD328": {fileID: 11400000, guid: deb6163afec0cb74a9ca9cf9eea9a869, type: 2}
   "\uD638\uB9AC\uBCD1": {fileID: 11400000, guid: 6797edb565b78364fa133eaec1c122ea, type: 2}
   "\uC591\uCD08": {fileID: 11400000, guid: fc47eae217e6f634eb3309fbb2cc4e3b, type: 2}
+  "\uC885": {fileID: 0}
   inventory: {fileID: 1896080597}
 --- !u!1 &586472014
 GameObject:
@@ -644,8 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    csvFileName: "\uD638\uC2DD\uCD1D \uC5D4\uB529"
-    name: "\uC785\uC0B0"
+    csvFileName: "\uACF6\uAC10 \uD68D\uB4DD"
     line: {x: 1, y: 22}
     dialogues:
     - name: 
@@ -957,6 +957,9 @@ MonoBehaviour:
       choice3_Next: 0
       skipLine: 0
   button: {fileID: 0}
+  checkDestroy: 0
+  npcCheckIdx: 0
+  dialogueManager: {fileID: 0}
 --- !u!136 &742824520
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1528,6 +1531,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1894787387720383902, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391405355954687752, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000583114028641777, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1584,6 +1595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6363250451872119172, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7376082594070460174, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1598,6 +1613,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7376082594070460174, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646680519717147587, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8206138613165883829, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
