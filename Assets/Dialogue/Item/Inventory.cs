@@ -7,6 +7,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
+    public List<Item> stack_items = new List<Item>();
     public Item testitem;
     public Item testitem2;
     [SerializeField]
@@ -48,10 +49,10 @@ public class Inventory : MonoBehaviour
         {
             slots[i].item = null;
         }
-        ggotgam = items.Find(item => item.itemName == "°ù°¨");
+        ggotgam = testitem;//items.Find(item => item.itemName == "°ù°¨");
         GamQuantityText.text = ggotgam != null ? ggotgam.quantity.ToString() : "0";
 
-        Dduck = items.Find(item => item.itemName == "¶±");
+        Dduck = testitem2;
         DduckQuantityText.text = Dduck != null ? Dduck.quantity.ToString() : "0";
     }
 
@@ -59,7 +60,8 @@ public class Inventory : MonoBehaviour
     {
         if (_item.isStack)
         {
-            Item existingItem = items.Find(i => i.itemName == _item.itemName);
+            Item existingItem = stack_items.Find(i => i.itemName == _item.itemName);
+            
             if (existingItem != null)
             {
                 existingItem.quantity++;
@@ -68,7 +70,8 @@ public class Inventory : MonoBehaviour
             {
 
                 _item.quantity = 1;
-                items.Add(_item);
+                stack_items.Add(_item);
+
             }
         }
         else
@@ -96,8 +99,18 @@ public class Inventory : MonoBehaviour
     public void UseItem(string itemName)
     {
         Item targetItem = items.Find(item => item.itemName == itemName);
-        
-        if (targetItem != null && targetItem.isStack)
+        Item target_stack_Item=stack_items.Find(item => item.itemName == itemName);
+        if (target_stack_Item != null)
+        {
+            target_stack_Item.quantity--;
+
+            if (target_stack_Item.quantity <= 0)
+            {
+                stack_items.Remove(target_stack_Item);
+            }
+            FreshSlot();
+        }
+        if (targetItem != null)
         {
             targetItem.quantity--;
 
