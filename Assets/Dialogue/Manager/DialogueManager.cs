@@ -137,6 +137,8 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
+
+
     public void ShowDialogue(Dialogue[] P_dialogues, GameObject gameObject)
     {
         isDialogue = true;
@@ -146,7 +148,7 @@ public class DialogueManager : MonoBehaviour
         dialogues = P_dialogues;
         SettingUI(true);
         StopAllCoroutines();
-        StartCoroutine(TypeWriter());
+        StartCoroutine(TypeWriter());   
 
     }
 

@@ -14,6 +14,9 @@ public class InteractionEvent : MonoBehaviour
     public bool checkDestroy = false;
     public int npcCheckIdx = 0;
 
+    public bool autoPlay = false;
+    public float autoDelayTime = 2f;
+    private float checkDelayTime = 0f;
     [SerializeField]private DialogueManager dialogueManager;
 
     private void Start()
@@ -47,9 +50,11 @@ public class InteractionEvent : MonoBehaviour
         if (other.tag == "Player")
         {
             //dialogueManager.ChangeRayCast();
-            button.SetActive(true);
-            if (Tutorial.tutorialIdx == 0)
+            if(!autoPlay)
+                button.SetActive(true);
+            if (Tutorial.tutorialIdx == 0 && other.gameObject.layer == LayerMask.NameToLayer("Tutorial"))
             {
+                Debug.Log(Tutorial.tutorialIdx);
                 OnClickDialogStart();
             }
         }
@@ -60,7 +65,15 @@ public class InteractionEvent : MonoBehaviour
         {
             TestPlayer.isPlayerJump = false;
             dialogue.dialogues = GetDialogue();
-
+            if (autoPlay)
+            {
+                checkDelayTime += Time.deltaTime;
+                if (checkDelayTime >= autoDelayTime)
+                {
+                    OnClickDialogStart();
+                    autoPlay = false;
+                }
+            }
             //vr
             button.GetComponent<Button>().onClick.AddListener(() =>
             {
