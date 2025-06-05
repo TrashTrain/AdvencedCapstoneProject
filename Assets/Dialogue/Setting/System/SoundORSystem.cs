@@ -39,6 +39,7 @@ public class SoundORSystem : MonoBehaviour
     }
     public void setSystemTab()
     {
+        EventManager.Instance.TriggerEvent("clickSound");
         SystemTab.SetActive(true);
         SoundTab.SetActive(false);
         if (SystemTabImage != null)
@@ -48,6 +49,7 @@ public class SoundORSystem : MonoBehaviour
     }
     public void setSoundTab()
     {
+        EventManager.Instance.TriggerEvent("clickSound");
         SystemTab.SetActive(false);
         SoundTab.SetActive(true);
         if (SystemTabImage != null)

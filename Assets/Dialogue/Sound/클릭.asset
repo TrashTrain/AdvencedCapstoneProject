@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: "\uD074\uB9AD"
   m_EditorClassIdentifier: 
   soundKey: "\uD074\uB9AD"
-  clip: {fileID: 8300000, guid: b9b5f60e94da813439ab2190f00bb6b7, type: 3}
+  clip: {fileID: 8300000, guid: 08f371f94df3fc04f9124cd3cdd6fe2b, type: 3}
   mixerGroup: {fileID: 4841486002489762503, guid: eb0e73b5821a3fe499e7d6db3e0352ad, type: 2}
   loop: 0

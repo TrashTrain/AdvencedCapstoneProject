@@ -80,6 +80,7 @@ public class AudioManager : MonoBehaviour
     }
     public void ToggleMuteAll()
     {
+       
         if (!isAllMuted)
         {
             

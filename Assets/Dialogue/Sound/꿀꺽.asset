@@ -15,4 +15,4 @@ MonoBehaviour:
   soundKey: "\uAFC0\uAEBD"
   clip: {fileID: 8300000, guid: 17626c47624f0564aaabad638622692f, type: 3}
   mixerGroup: {fileID: 4841486002489762503, guid: eb0e73b5821a3fe499e7d6db3e0352ad, type: 2}
-  loop: 1
+  loop: 0

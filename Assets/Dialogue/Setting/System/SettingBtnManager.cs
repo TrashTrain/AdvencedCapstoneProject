@@ -21,12 +21,13 @@ public class SettingBtnManager : MonoBehaviour
         SettingPanel.SetActive(false);
         BackGround.gameObject.SetActive(false);
         isOpen = false;
+        Debug.Log(isOpen);
     }
     public void manageSettingPanel()
     {
         if (isOpen == false)
         {
-            
+            EventManager.Instance.TriggerEvent("clickSound");
             SettingPanel.SetActive(true);
             isOpen = true;
             originbtn.gameObject.SetActive(false);
@@ -36,7 +37,7 @@ public class SettingBtnManager : MonoBehaviour
 }
         else if (isOpen == true)
         {
-            
+            EventManager.Instance.TriggerEvent("clickSound");
             SettingPanel.SetActive(false);
             isOpen=false;
             originbtn.gameObject.SetActive(true);

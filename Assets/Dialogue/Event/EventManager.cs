@@ -18,7 +18,7 @@ public class EventManager : MonoBehaviour
     }
     public void Start()
     {
-
+        inventory.AddItem(¶±);
     }
 
     public void TriggerEvent(string eventKey)
@@ -67,6 +67,9 @@ public class EventManager : MonoBehaviour
                 break;
             case "clickSound":
                 SoundManager.Instance.Play("Å¬¸¯");
+                break;
+            case "eatSound":
+                SoundManager.Instance.Play("²Ü²©");
                 break;
                 
         }

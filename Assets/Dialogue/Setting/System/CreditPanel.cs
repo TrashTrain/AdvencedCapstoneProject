@@ -8,6 +8,7 @@ public class CreditPanel : MonoBehaviour
     // Start is called before the first frame update
    public void exitCredit()
     {
+        EventManager.Instance.TriggerEvent("clickSound");
         Credit.SetActive(false);
     }
 }

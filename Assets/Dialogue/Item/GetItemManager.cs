@@ -25,6 +25,7 @@ public class GetItemManager : MonoBehaviour
     }
     public void exitIteminfo()
     {
+        EventManager.Instance.TriggerEvent("clickSound");
         GetItemPanel.SetActive(false);
         BackGround.gameObject.SetActive(false);
         //DasabaseManager.instance.dialogue.ChangeRayCast();

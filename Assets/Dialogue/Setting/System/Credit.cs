@@ -14,6 +14,7 @@ public class Credit : MonoBehaviour
     }
     public void manageCreditPanel()
     {
+        EventManager.Instance.TriggerEvent("clickSound");
         CreditPanel.SetActive(true);
     }
 }

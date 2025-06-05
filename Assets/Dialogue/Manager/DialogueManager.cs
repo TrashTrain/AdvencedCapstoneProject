@@ -282,7 +282,7 @@ public class DialogueManager : MonoBehaviour
     }
     void OnChoiceSelected(int nextLine)
     {
-
+        EventManager.Instance.TriggerEvent("clickSound");
         go_ChoicePanel.SetActive(false);
 
         contextCount = 0;
