@@ -3440,8 +3440,8 @@ RectTransform:
   m_GameObject: {fileID: 1258231806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.629128, y: 5.8194666, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 4.003372, z: 0.6879277}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 529848050}
   - {fileID: 632731306}
@@ -5713,6 +5713,26 @@ PrefabInstance:
     - target: {fileID: 7589993198960171221, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716900763370325861, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
+      propertyPath: optionMenuPanel
+      value: 
+      objectReference: {fileID: 1258231806}
+    - target: {fileID: 8716900763370325861, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
+      propertyPath: runButton.m_Action.m_Name
+      value: Run Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716900763370325861, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
+      propertyPath: useItemButton.m_Action.m_Name
+      value: Use Item Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716900763370325861, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
+      propertyPath: menuItemButton.m_Action.m_Name
+      value: Menu Item Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716900763370325861, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
+      propertyPath: menuOptionButton.m_Action.m_Name
+      value: Menu Option Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

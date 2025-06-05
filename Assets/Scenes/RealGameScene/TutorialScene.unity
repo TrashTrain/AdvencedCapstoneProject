@@ -536,6 +536,8 @@ MonoBehaviour:
   button: {fileID: 1455941765}
   checkDestroy: 0
   npcCheckIdx: 0
+  autoPlay: 0
+  autoDelayTime: 2
   dialogueManager: {fileID: 151977223}
 --- !u!135 &21752902
 SphereCollider:
@@ -1360,6 +1362,8 @@ MonoBehaviour:
   button: {fileID: 1455941765}
   checkDestroy: 0
   npcCheckIdx: 0
+  autoPlay: 0
+  autoDelayTime: 2
   dialogueManager: {fileID: 151977223}
 --- !u!1001 &241109857
 PrefabInstance:
@@ -1447,9 +1451,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1183046072226941985, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462653638190951192, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697795519988794031, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969325625715315868, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697460243393812992, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -118
+      objectReference: {fileID: 0}
     - target: {fileID: 5963840692128820872, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445159676321323936, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6896546085004877878, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8206138613165883829, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_Pivot.x
@@ -1531,10 +1563,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8309719558316494272, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8925300060331235072, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 62708895}
+    - target: {fileID: 8989486895812498502, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5054,6 +5094,8 @@ MonoBehaviour:
   button: {fileID: 1455941765}
   checkDestroy: 0
   npcCheckIdx: 0
+  autoPlay: 0
+  autoDelayTime: 2
   dialogueManager: {fileID: 151977223}
 --- !u!114 &1543064473
 MonoBehaviour:
@@ -7378,6 +7420,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1705885539335996655, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1050908021570271116, guid: b8179f25ea673f44fbc4f8f29ed4345e, type: 3}
     - target: {fileID: 2599012845706374190, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: button
       value: 
@@ -7446,6 +7492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 6067913395721988815, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 3263931781923126087, guid: b8179f25ea673f44fbc4f8f29ed4345e, type: 3}
     - target: {fileID: 6584607266008083178, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -7454,6 +7504,10 @@ PrefabInstance:
       propertyPath: button
       value: 
       objectReference: {fileID: 1455941765}
+    - target: {fileID: 7681641686102719535, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: autoPlay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7681641686102719535, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: dialogueManager
       value: 

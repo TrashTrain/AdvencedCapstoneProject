@@ -70,6 +70,7 @@ public class InteractionEvent : MonoBehaviour
                 checkDelayTime += Time.deltaTime;
                 if (checkDelayTime >= autoDelayTime)
                 {
+                    checkDelayTime = 0;
                     OnClickDialogStart();
                     autoPlay = false;
                 }

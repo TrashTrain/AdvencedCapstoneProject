@@ -93,6 +93,7 @@ public class Tiger : MonoBehaviour
         {
             Debug.Log("곶감에 맞았다!");
             gameObject.GetComponent<Animator>().runtimeAnimatorController = changeAni;
+            tigerState = TState.RunBack;
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "dduk")
@@ -225,6 +226,10 @@ public class Tiger : MonoBehaviour
         playerT = VRPlayer.instance.transform;
         meshAgent.speed = tigerWalkSpeed;
         animator.SetBool("IsWalk", true);
+        animator.SetBool("IsRun", false);
+        animator.SetBool("AttackTiger", false);
+        animator.SetBool("IsEating", false);
+        animator.SetBool("IsRunBack", false);
 
     }
     private void TigerRun()
@@ -235,6 +240,10 @@ public class Tiger : MonoBehaviour
         //transform.Translate(Vector3.forward * speed);
         meshAgent.speed = tigerRunSpeed;
         animator.SetBool("IsRun", true);
+        animator.SetBool("IsWalk", false);
+        animator.SetBool("AttackTiger", false);
+        animator.SetBool("IsEating", false);
+        animator.SetBool("IsRunBack", false);
 
     }
 
@@ -242,17 +251,29 @@ public class Tiger : MonoBehaviour
     {
         meshAgent.velocity = Vector3.zero;
         animator.SetBool("AttackTiger", true);
+        animator.SetBool("IsWalk", false);
+        animator.SetBool("IsRun", false);
+        animator.SetBool("IsEating", false);
+        animator.SetBool("IsRunBack", false);
     }
 
     private void TigerEat()
     {
         meshAgent.velocity = Vector3.zero;
         animator.SetBool("IsEating", true);
+        animator.SetBool("IsWalk", false);
+        animator.SetBool("IsRun", false);
+        animator.SetBool("AttackTiger", false);
+        animator.SetBool("IsRunBack", false);
     }
 
     private void TigerRunBack()
     {
         animator.SetBool("IsRunBack", true);
+        animator.SetBool("IsWalk", false);
+        animator.SetBool("IsRun", false);
+        animator.SetBool("AttackTiger", false);
+        animator.SetBool("IsEating", false);
         TigerTurnBack();
     }
 

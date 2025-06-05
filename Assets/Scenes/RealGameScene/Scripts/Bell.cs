@@ -33,4 +33,5 @@ public class Bell : MonoBehaviour
         inven.AddItem(bell);
         //DasabaseManager.instance.dialogue.ChangeRayCast();
     }
+
 }
