@@ -50,7 +50,8 @@ public class ChangGui : MonoBehaviour
             {
                 tiger.SetActive(true);
                 nextEvent.SetActive(true);
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                nextEvent.GetComponent<InteractionEvent>().autoPlay = false;
             }
             
         }

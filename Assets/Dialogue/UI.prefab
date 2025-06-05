@@ -2557,7 +2557,6 @@ RectTransform:
   - {fileID: 5046879410055172576}
   - {fileID: 1708457442579563968}
   - {fileID: 1375947253833515745}
-  - {fileID: 6595917138083108639}
   - {fileID: 1591886335001261561}
   - {fileID: 3975671768027855214}
   m_Father: {fileID: 5815445371944539918}
@@ -5576,6 +5575,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6595917138083108639}
+  - {fileID: 1080332117112709329}
   - {fileID: 3179955835107461879}
   - {fileID: 5815445371944539918}
   m_Father: {fileID: 0}
@@ -6385,7 +6386,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3940526667177238896}
-  - {fileID: 1080332117112709329}
   m_Father: {fileID: 8206138613165883829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7955,7 +7955,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7538862916127628166}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &1556275431971937203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8018,7 +8018,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5697460243393812992}
+  m_Father: {fileID: 8206138613165883829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5059344631669032380
 MonoBehaviour:
@@ -8677,7 +8677,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8092675059425087628}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &101254782122427509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8724,7 +8724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1080332117112709329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8732,14 +8732,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8252913025260919714}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6824703, y: 0.7331064, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7600088282076756979}
   - {fileID: 8704540511585582140}
-  m_Father: {fileID: 3179955835107461879}
+  m_Father: {fileID: 8206138613165883829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9695,6 +9695,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdabd63cbe1138b4cb54d7c5aa872656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamPrefab: {fileID: 0}
+  ddukPrefab: {fileID: 0}
+  spawnPos: {fileID: 0}
 --- !u!1001 &1660952713224108941
 PrefabInstance:
   m_ObjectHideFlags: 0

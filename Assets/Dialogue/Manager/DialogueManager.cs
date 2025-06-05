@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI txt_Choice1;
     [SerializeField] TextMeshProUGUI txt_Choice2;
     [SerializeField] TextMeshProUGUI txt_Choice3;
+    [SerializeField] GameObject dialogPanel;
 
     [SerializeField] Image DialNextImage;
     Dialogue[] dialogues;
@@ -147,6 +148,7 @@ public class DialogueManager : MonoBehaviour
         txt_Name.text = "";
         dialogues = P_dialogues;
         SettingUI(true);
+        Debug.Log(npcObject.GetComponent<InteractionEvent>().npcCheckIdx);
         StopAllCoroutines();
         StartCoroutine(TypeWriter());   
 

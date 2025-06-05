@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -14,6 +15,7 @@ public class Tiger : MonoBehaviour
     public TState tigerState;
 
     private Animator animator;
+    [SerializeField] private AnimatorController changeAni;
 
     private NavMeshAgent meshAgent;
 
@@ -34,7 +36,7 @@ public class Tiger : MonoBehaviour
         Run,
         Attack,
         Eat,
-        Die
+        RunBack
     }
 
     // Start is called before the first frame update
@@ -51,7 +53,7 @@ public class Tiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         // 플레이어 좌표를 향해 일정 속도로 달려오기. -> 플레이어와 일정범위 안으로 가까워지면 점프 공격
         // 곶감에 당했을 때 (도망)
 
@@ -76,7 +78,22 @@ public class Tiger : MonoBehaviour
                 break;
         }
         // 이동 테스트
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
         
+        if (collision.gameObject.tag == "gotgam")
+        {
+            Debug.Log("곶감에 맞았다!");
+            gameObject.GetComponent<Animator>().runtimeAnimatorController = changeAni;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "dduk")
+        {
+            Debug.Log("떡이다!");
+        }
     }
 
     public void OnCheckScanRange()
@@ -96,11 +113,11 @@ public class Tiger : MonoBehaviour
                     break;
             }
 
-            Debug.Log("CheckRange : " + checkRange);
+            //Debug.Log("CheckRange : " + checkRange);
             updateCheckRange = checkRange;
         }
-        
-        
+
+
     }
 
     // 3초마다 새로운 랜덤 위치를 찾아 이동하는 함수
@@ -110,27 +127,27 @@ public class Tiger : MonoBehaviour
         OnCheckScanRange();
         if (timeSinceLastUpdate >= updateInterval)
         {
-            if(GameMgr.Instance.PlayerInit().GetBoundaryLevel() <= 0)
+            if (GameMgr.Instance.PlayerInit().GetBoundaryLevel() <= 0)
             {
                 Vector3 randPos = GetRandomPosition();
                 meshAgent.SetDestination(randPos);
                 timeSinceLastUpdate = 0f;
             }
-            else 
+            else
             {
                 meshAgent.SetDestination(playerT.position);
                 timeSinceLastUpdate = 0f;
             }
         }
     }
-    
+
     public Vector3 GetRandomPosition()
     {
         Vector3 randDirect = Random.insideUnitSphere * 20f;
         randDirect += transform.position;
 
         NavMeshHit hit;
-        if(NavMesh.SamplePosition(randDirect, out hit, 20f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(randDirect, out hit, 20f, NavMesh.AllAreas))
         {
             return hit.position;
         }
@@ -138,14 +155,14 @@ public class Tiger : MonoBehaviour
         {
             return transform.position;
         }
-        
+
     }
 
     // 상태 변화 함수(정지, 공격, 정찰)
     public void TigerStateChanger()
     {
         int level = GameMgr.Instance.PlayerInit().GetBoundaryLevel();
-        Debug.Log("BoundaryLevel = " + level);
+        //Debug.Log("BoundaryLevel = " + level);
         switch (level)
         {
             case 0:
@@ -160,6 +177,10 @@ public class Tiger : MonoBehaviour
             case 3:
                 tigerState = TState.Attack;
                 break;
+            case 4:
+                tigerState = TState.RunBack;
+                break;
+
         }
         GetRandomMove();
     }
@@ -190,6 +211,7 @@ public class Tiger : MonoBehaviour
 
     private void TigerAttack()
     {
+        meshAgent.velocity = Vector3.zero;
         animator.SetBool("ScanTigerS", false);
         animator.SetBool("AttackTiger", true);
     }
@@ -206,7 +228,7 @@ public class Tiger : MonoBehaviour
         //dir.y = 0f;
         //quaternion rot = quaternion.lookrotation(dir.normalized);
         //transform.rotation = rot;
-        
+
         // navMesh 사용 이동
         meshAgent.SetDestination(playerT.position);
 
@@ -214,5 +236,5 @@ public class Tiger : MonoBehaviour
 
         //transform.position = Vector3.MoveTowards(transform.position, playerT.position, tigerAttackSpeed * Time.deltaTime);
     }
-    
+
 }
