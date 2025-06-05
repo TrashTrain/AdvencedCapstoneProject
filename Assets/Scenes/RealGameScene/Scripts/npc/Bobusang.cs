@@ -10,7 +10,7 @@ public class Bobusang : MonoBehaviour
     private void Start()
     {
         npcIndex = gameObject.GetComponent<InteractionEvent>();
-}
+    }
     void Update()
     {
         if(npcIndex.npcCheckIdx == 1)

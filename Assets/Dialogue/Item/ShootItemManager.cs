@@ -5,15 +5,25 @@ using UnityEngine;
 
 public class ShootItemManager : MonoBehaviour
 {
-
-   public void UseGam()
+    [SerializeField] private GameObject gamPrefab;
+    [SerializeField] private GameObject ddukPrefab;
+    [SerializeField] private Transform spawnPos;
+    Transform spawn;
+    public void UseGam()
     {
-        EventManager.Instance.inventory.UseItem("°ù°¨");
+        //EventManager.Instance.inventory.UseItem("°ù°¨");
+        Debug.Log("gamspawn");
+        GameObject gam = Instantiate(gamPrefab, spawnPos);
+        gam.GetComponent<Transform>().position = spawnPos.position;
+        gam.transform.SetParent(null);
     }
    public void UseDduck()
     {
-        EventManager.Instance.inventory.UseItem("¶±");
+        //EventManager.Instance.inventory.UseItem("¶±");
+        GameObject dduk = Instantiate(ddukPrefab, spawnPos);
+        dduk.GetComponent<Transform>().position = spawnPos.position;
+        dduk.transform.SetParent(null);
     }
-
+    
 
 }

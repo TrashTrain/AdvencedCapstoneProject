@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Persimmon
       objectReference: {fileID: 0}
+    - target: {fileID: -8098169881513260187, guid: 0399feacdde2c1c4f8b765f71560f93d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8098169881513260187, guid: 0399feacdde2c1c4f8b765f71560f93d, type: 3}
+      propertyPath: m_TagString
+      value: gotgam
+      objectReference: {fileID: 0}
     - target: {fileID: 3447742079981357586, guid: 0399feacdde2c1c4f8b765f71560f93d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -63,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 3447742079981357586, guid: 0399feacdde2c1c4f8b765f71560f93d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596054609887090473, guid: 0399feacdde2c1c4f8b765f71560f93d, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
