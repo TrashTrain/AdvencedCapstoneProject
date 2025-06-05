@@ -13,6 +13,8 @@ public class ChangGui : MonoBehaviour
     public GameObject door;
 
     public GameObject tiger;
+
+    public GameObject nextEvent;
     private bool checkAutoPlay = false;
     private void Start()
     {
@@ -44,6 +46,13 @@ public class ChangGui : MonoBehaviour
         else if(npcIndex.npcCheckIdx == 3)
         {
             door.transform.rotation = Quaternion.Lerp(door.transform.rotation, Quaternion.Euler(0, 90f, 0), 1f * Time.deltaTime);
+            if(nextEvent.GetComponent<InteractionEvent>().autoPlay)
+            {
+                tiger.SetActive(true);
+                nextEvent.SetActive(true);
+                Destroy(gameObject);
+            }
+            
         }
     }
 }
