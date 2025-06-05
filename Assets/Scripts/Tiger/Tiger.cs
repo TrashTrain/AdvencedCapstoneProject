@@ -19,7 +19,6 @@ public class Tiger : MonoBehaviour
 
     private NavMeshAgent meshAgent;
 
-    [HideInInspector]
     public Transform playerT;
 
     // 호랑이 자동 움직임 변수
@@ -27,8 +26,8 @@ public class Tiger : MonoBehaviour
     private float timeSinceLastUpdate;
 
     // 범위 스캔 체크 변수
-    public int checkRange = 0;
-    private int updateCheckRange = 0;
+    public float runTime = 5f;
+    private float checkRunTime;
 
     public enum TState
     {
@@ -58,23 +57,29 @@ public class Tiger : MonoBehaviour
         // 곶감에 당했을 때 (도망)
 
         // 떡을 받았을 때 (심취)
-
+        TigerStateChanger();
         switch (tigerState)
         {
             case TState.Idle:
-                Debug.Log("Idle");
+                //Debug.Log("Idle");
                 GetRandomMove();
-                TigerMove();
+                TigerWalk();
                 break;
             case TState.Run:
-                Debug.Log("Run");
+                //Debug.Log("Run");
                 GetRandomMove();
                 TigerRun();
                 break;
             case TState.Attack:
-                Debug.Log("Attack");
+                //Debug.Log("Attack");
                 //ScanPlayer();
                 TigerAttack();
+                break;
+            case TState.Eat:
+                TigerEat();
+                break;
+            case TState.RunBack:
+                TigerRunBack();
                 break;
         }
         // 이동 테스트
@@ -83,7 +88,7 @@ public class Tiger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+
         if (collision.gameObject.tag == "gotgam")
         {
             Debug.Log("곶감에 맞았다!");
@@ -96,38 +101,39 @@ public class Tiger : MonoBehaviour
         }
     }
 
-    public void OnCheckScanRange()
-    {
-        var player = GameMgr.Instance.PlayerInit();
-        if (updateCheckRange != checkRange)
-        {
-            switch (checkRange)
-            {
-                case 0:
-                    break;
-                case 1:
-                    player.SetUpBoundaryLevel();
-                    break;
-                case 2:
-                    player.SetDownBoundaryLevel();
-                    break;
-            }
 
-            //Debug.Log("CheckRange : " + checkRange);
-            updateCheckRange = checkRange;
-        }
+    //public void OnCheckScanRange()
+    //{
+    //    var player = GameMgr.Instance.PlayerInit();
+    //    if (updateCheckRange != checkRange)
+    //    {
+    //        switch (checkRange)
+    //        {
+    //            case 0:
+    //                break;
+    //            case 1:
+    //                player.SetUpBoundaryLevel();
+    //                break;
+    //            case 2:
+    //                player.SetDownBoundaryLevel();
+    //                break;
+    //        }
+
+    //        //Debug.Log("CheckRange : " + checkRange);
+    //        updateCheckRange = checkRange;
+    //    }
 
 
-    }
+    //}
 
     // 3초마다 새로운 랜덤 위치를 찾아 이동하는 함수
     public void GetRandomMove()
     {
         timeSinceLastUpdate += Time.deltaTime;
-        OnCheckScanRange();
+        // OnCheckScanRange();
         if (timeSinceLastUpdate >= updateInterval)
         {
-            if (GameMgr.Instance.PlayerInit().GetBoundaryLevel() <= 0)
+            if (VRPlayer.instance.nowState == VRPlayer.PlayerState.HIDE)
             {
                 Vector3 randPos = GetRandomPosition();
                 meshAgent.SetDestination(randPos);
@@ -159,42 +165,66 @@ public class Tiger : MonoBehaviour
     }
 
     // 상태 변화 함수(정지, 공격, 정찰)
+    //public void TigerStateChanger()
+    //{
+    //    Debug.Log("상태변화");
+    //    int level = GameMgr.Instance.PlayerInit().GetBoundaryLevel();
+    //    //Debug.Log("BoundaryLevel = " + level);
+    //    switch (level)
+    //    {
+    //        case 0:
+    //            tigerState = TState.Idle;
+    //            break;
+    //        case 1:
+    //            tigerState = TState.Idle;
+    //            break;
+    //        case 2:
+    //            tigerState = TState.Run;
+    //            break;
+    //        case 3:
+    //            tigerState = TState.Attack;
+    //            break;
+    //        case 4:
+    //            tigerState = TState.RunBack;
+    //            break;
+
+    //    }
+    //    GetRandomMove();
+    //}
     public void TigerStateChanger()
     {
-        int level = GameMgr.Instance.PlayerInit().GetBoundaryLevel();
-        //Debug.Log("BoundaryLevel = " + level);
-        switch (level)
-        {
-            case 0:
-                tigerState = TState.Idle;
-                break;
-            case 1:
-                tigerState = TState.Idle;
-                break;
-            case 2:
-                tigerState = TState.Run;
-                break;
-            case 3:
-                tigerState = TState.Attack;
-                break;
-            case 4:
-                tigerState = TState.RunBack;
-                break;
-
-        }
-        GetRandomMove();
+        if (VRPlayer.instance.nowState != VRPlayer.instance.changeState)
+            //Debug.Log("BoundaryLevel = " + level);
+            switch (VRPlayer.instance.nowState)
+            {
+                case VRPlayer.PlayerState.WALK:
+                    tigerState = TState.Idle;
+                    break;
+                case VRPlayer.PlayerState.RUN:
+                    tigerState = TState.Run;
+                    break;
+                case VRPlayer.PlayerState.JUMP:
+                    tigerState = TState.Run;
+                    break;
+                case VRPlayer.PlayerState.HIDE:
+                    tigerState = TState.Idle;
+                    break;
+            }
+        VRPlayer.instance.nowState = VRPlayer.instance.changeState;
     }
     // 움직임 함수
-    private void TigerMove()
+    private void TigerWalk()
     {
         // 걷기 애니메이션 재생
 
         //걷기 코드
         //float speed = tigerWalkSpeed * Time.deltaTime;
         //transform.Translate(Vector3.forward * speed);
+        if (VRPlayer.instance.transform == null) 
+            Debug.Log("없나?");
+        playerT = VRPlayer.instance.transform;
         meshAgent.speed = tigerWalkSpeed;
-        animator.SetBool("ScanTigerL", false);
-        animator.SetBool("ScanTigerS", true);
+        animator.SetBool("IsWalk", true);
 
     }
     private void TigerRun()
@@ -204,16 +234,42 @@ public class Tiger : MonoBehaviour
         //float speed = tigerRunSpeed * Time.deltaTime;
         //transform.Translate(Vector3.forward * speed);
         meshAgent.speed = tigerRunSpeed;
-        animator.SetBool("ScanTigerS", false);
-        animator.SetBool("ScanTigerL", true);
+        animator.SetBool("IsRun", true);
 
     }
 
     private void TigerAttack()
     {
         meshAgent.velocity = Vector3.zero;
-        animator.SetBool("ScanTigerS", false);
         animator.SetBool("AttackTiger", true);
+    }
+
+    private void TigerEat()
+    {
+        meshAgent.velocity = Vector3.zero;
+        animator.SetBool("IsEating", true);
+    }
+
+    private void TigerRunBack()
+    {
+        animator.SetBool("IsRunBack", true);
+        TigerTurnBack();
+    }
+
+    private void TigerTurnBack()
+    {
+        checkRunTime += Time.deltaTime;
+        if(checkRunTime >= runTime)
+        {
+            checkRunTime = 0;
+            animator.SetBool("IsWalk", true);
+        }
+        else if(checkRunTime < runTime)
+        {
+            meshAgent.speed = tigerRunSpeed;
+            meshAgent.SetDestination(-playerT.position);
+        }
+        animator.SetBool("IsTurnBack", true);
     }
 
     // 플레이어 감지 함수(사용 안함)

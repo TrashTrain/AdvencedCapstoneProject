@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class VRPlayer : MonoBehaviour
 {
-    private static VRPlayer instance = null;
+    public static VRPlayer instance = null;
     [Header("OculusButton")]
     [SerializeField] private InputActionProperty jumpButton;
     [SerializeField] private InputActionProperty runButton;
@@ -25,9 +25,20 @@ public class VRPlayer : MonoBehaviour
     [SerializeField] private GameObject itemMenuPanel;
     [SerializeField] private GameObject optionMenuPanel;
 
+
+    public PlayerState changeState;
+    public PlayerState nowState = PlayerState.WALK;
+
     private float gravity = Physics.gravity.y;
     private Vector3 movement;
 
+    public enum PlayerState
+    {
+        WALK,
+        RUN,
+        JUMP,
+        HIDE
+    }
     void Start()
     {
         if (instance == null)
@@ -45,18 +56,21 @@ public class VRPlayer : MonoBehaviour
     {
         bool _isGrounded = IsGrounded();
         if(IsGrounded())
-            Debug.Log("땅밟고있음");
+            //Debug.Log("땅밟고있음");
         if (jumpButton.action.WasPressedThisFrame() && _isGrounded && TestPlayer.isPlayerJump && TestPlayer.isPlayerMove)
         {
-            Debug.Log("점프");
+            //Debug.Log("점프");
+            changeState = PlayerState.JUMP;
             Jump();
         }
         if(runButton.action.IsPressed() && TestPlayer.isPlayerJump && TestPlayer.isPlayerMove)
         {
+            changeState = PlayerState.RUN;
             Run();
         }
         else
         {
+            changeState = PlayerState.WALK;
             gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = 3f;
         }
         if(useItemButton.action.WasPressedThisFrame() && !itemMenuPanel.activeSelf && !optionMenuPanel.activeSelf)
@@ -69,7 +83,7 @@ public class VRPlayer : MonoBehaviour
         }
         if (menuOptionButton.action.WasPressedThisFrame())
         {
-            Debug.Log("메뉴버튼 클릭");
+            //Debug.Log("메뉴버튼 클릭");
             optionMenuPanel.SetActive(!optionMenuPanel.activeSelf);
         }
         movement.y += gravity * Time.deltaTime;
