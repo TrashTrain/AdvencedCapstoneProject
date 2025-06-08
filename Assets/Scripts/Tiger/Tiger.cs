@@ -92,6 +92,7 @@ public class Tiger : MonoBehaviour
         if (collision.gameObject.tag == "gotgam")
         {
             Debug.Log("곶감에 맞았다!");
+            SoundManager.Instance.Play("SadTiger");
             gameObject.GetComponent<Animator>().runtimeAnimatorController = changeAni;
             tigerState = TState.RunBack;
             Destroy(collision.gameObject);
