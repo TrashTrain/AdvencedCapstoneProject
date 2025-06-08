@@ -30,7 +30,7 @@ public class SettingBtnManager : MonoBehaviour
             SettingPanel.SetActive(true);
             isOpen = true;
             //originbtn.gameObject.SetActive(false);
-            //backbtn.gameObject.SetActive(true);
+            backbtn.gameObject.SetActive(true);
             //BackGround.gameObject.SetActive(true);
 
 }
@@ -40,7 +40,7 @@ public class SettingBtnManager : MonoBehaviour
             SettingPanel.SetActive(false);
             isOpen=false;
             //originbtn.gameObject.SetActive(true);
-            //backbtn.gameObject.SetActive(false);
+            backbtn.gameObject.SetActive(false);
             //BackGround.gameObject.SetActive(false);
         }
     }

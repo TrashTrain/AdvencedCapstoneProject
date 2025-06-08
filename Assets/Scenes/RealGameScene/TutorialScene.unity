@@ -538,6 +538,7 @@ MonoBehaviour:
   npcCheckIdx: 0
   autoPlay: 0
   autoDelayTime: 2
+  tutorial: 0
   dialogueManager: {fileID: 151977223}
 --- !u!135 &21752902
 SphereCollider:
@@ -670,6 +671,11 @@ Transform:
 Camera:
   m_CorrespondingSourceObject: {fileID: 7547125994763385711, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
   m_PrefabInstance: {fileID: 2129608951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &116551129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5010591538907661923, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+  m_PrefabInstance: {fileID: 4110159517211621321}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &134205352
 PrefabInstance:
@@ -822,6 +828,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16feafbf934b67d4da9f28ba7ffa7a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &152925834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9195520063037423227, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+  m_PrefabInstance: {fileID: 254353951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &173252216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,6 +1375,7 @@ MonoBehaviour:
   npcCheckIdx: 0
   autoPlay: 0
   autoDelayTime: 2
+  tutorial: 0
   dialogueManager: {fileID: 151977223}
 --- !u!1001 &241109857
 PrefabInstance:
@@ -1463,14 +1475,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1969325625715315868, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5697460243393812992, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -118
-      objectReference: {fileID: 0}
     - target: {fileID: 5963840692128820872, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_Name
       value: UI
@@ -1482,6 +1486,14 @@ PrefabInstance:
     - target: {fileID: 6896546085004877878, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271699437993868952, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646680519717147587, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8206138613165883829, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
       propertyPath: m_Pivot.x
@@ -1585,7 +1597,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 960184976920161811, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
   m_PrefabInstance: {fileID: 254353951}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2137656545}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acf0ed88bfe8a354f9116dd0a816ffcb, type: 3}
@@ -5096,6 +5108,7 @@ MonoBehaviour:
   npcCheckIdx: 0
   autoPlay: 0
   autoDelayTime: 2
+  tutorial: 0
   dialogueManager: {fileID: 151977223}
 --- !u!114 &1543064473
 MonoBehaviour:
@@ -5907,6 +5920,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030994778, guid: abc00000000013582911179529913124, type: 3}
   m_PrefabInstance: {fileID: 1876616283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1904410622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8989486895812498502, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+  m_PrefabInstance: {fileID: 254353951}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1925335610
 GameObject:
@@ -7346,11 +7364,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Simple XR Player with Ray Interactor
       objectReference: {fileID: 0}
+    - target: {fileID: 8716900763370325861, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
+      propertyPath: useItemPanel
+      value: 
+      objectReference: {fileID: 152925834}
+    - target: {fileID: 8716900763370325861, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
+      propertyPath: itemMenuPanel
+      value: 
+      objectReference: {fileID: 2137656545}
+    - target: {fileID: 8716900763370325861, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
+      propertyPath: optionMenuPanel
+      value: 
+      objectReference: {fileID: 1904410622}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1cbab279e2c4e5479a40bd4141a7575, type: 3}
+--- !u!1 &2137656545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8824064776149204832, guid: b2824f40cc6d33d4fbf0ff5d6a80a8c8, type: 3}
+  m_PrefabInstance: {fileID: 254353951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &161156007668382110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7420,14 +7455,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 757453807547747635, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.17576873
+      objectReference: {fileID: 0}
+    - target: {fileID: 757453807547747635, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17576873
+      objectReference: {fileID: 0}
+    - target: {fileID: 757453807547747635, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.17576873
+      objectReference: {fileID: 0}
     - target: {fileID: 1705885539335996655, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1050908021570271116, guid: b8179f25ea673f44fbc4f8f29ed4345e, type: 3}
+    - target: {fileID: 2537570231758048875, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: leftDoor
+      value: 
+      objectReference: {fileID: 1940645886}
+    - target: {fileID: 2537570231758048875, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: rightDoor
+      value: 
+      objectReference: {fileID: 544778612}
     - target: {fileID: 2599012845706374190, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: button
       value: 
       objectReference: {fileID: 1455941765}
+    - target: {fileID: 2599012845706374190, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: checkItem
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2599012845706374190, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: dialogueManager
       value: 
@@ -7440,6 +7499,10 @@ PrefabInstance:
       propertyPath: rightDoor
       value: 
       objectReference: {fileID: 1940645886}
+    - target: {fileID: 3406134721067047441, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4435762639242030681, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.30981
@@ -7485,6 +7548,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1455941765}
     - target: {fileID: 5525551668927213355, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: checkItem
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525551668927213355, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 151977223}
@@ -7499,6 +7566,18 @@ PrefabInstance:
     - target: {fileID: 6584607266008083178, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078598305615105590, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.20227276
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078598305615105590, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.20227276
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078598305615105590, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.20227276
       objectReference: {fileID: 0}
     - target: {fileID: 7681641686102719535, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
       propertyPath: button
@@ -7516,6 +7595,10 @@ PrefabInstance:
       propertyPath: inven
       value: 
       objectReference: {fileID: 254353953}
+    - target: {fileID: 8945869098165715355, guid: 198953bac6948d44893c38219b4fbb6a, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 116551129}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

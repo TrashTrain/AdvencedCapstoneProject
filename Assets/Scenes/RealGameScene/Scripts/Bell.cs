@@ -9,14 +9,17 @@ public class Bell : MonoBehaviour
     public GameObject canvas;
     public Inventory inven;
     public Item bell;
+    public GameObject dialog;
 
     void Update()
     {
         //canvas
-        if(Tutorial.tutorialIdx >= 2)
+        if(Tutorial.tutorialIdx >= 2 && dialog.GetComponent<InteractionEvent>().tutorial)
         {
             canvas.SetActive(true);
         }
+        if (!dialog.GetComponent<InteractionEvent>().tutorial)
+            canvas.SetActive(true);
         if (canvas.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -31,6 +34,7 @@ public class Bell : MonoBehaviour
     public void OnGribBell()
     {
         inven.AddItem(bell);
+        Destroy(gameObject);
         //DasabaseManager.instance.dialogue.ChangeRayCast();
     }
 

@@ -11,7 +11,7 @@ public class VRPlayer : MonoBehaviour
     [SerializeField] private InputActionProperty jumpButton;
     [SerializeField] private InputActionProperty runButton;
     [SerializeField] private InputActionProperty useItemButton;
-    [SerializeField] private InputActionProperty menuItemButton;
+    [SerializeField] public InputActionProperty menuItemButton;
     [SerializeField] private InputActionProperty menuOptionButton;
 
     [Header("Element")]

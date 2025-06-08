@@ -17,6 +17,9 @@ public class InteractionEvent : MonoBehaviour
     public bool autoPlay = false;
     public float autoDelayTime = 2f;
     private float checkDelayTime = 0f;
+
+    public bool tutorial = false;
+
     [SerializeField]private DialogueManager dialogueManager;
 
     private void Start()
@@ -47,7 +50,7 @@ public class InteractionEvent : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !dialogueManager.isDialogue)
         {
             //dialogueManager.ChangeRayCast();
             if(!autoPlay)
