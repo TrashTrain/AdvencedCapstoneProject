@@ -94,11 +94,13 @@ public class VRPlayer : MonoBehaviour
     private void Jump()
     {
         movement.y = Mathf.Sqrt(jumpheight * -3.0f * gravity);
+        SoundManager.Instance.Play("Jump");
     }
 
     private void Run()
     {
         gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = runSpeed;
+        SoundManager.Instance.Play("Run");
     }
     private bool IsGrounded()
     {
