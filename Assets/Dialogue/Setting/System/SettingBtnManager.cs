@@ -29,9 +29,9 @@ public class SettingBtnManager : MonoBehaviour
             
             SettingPanel.SetActive(true);
             isOpen = true;
-            originbtn.gameObject.SetActive(false);
+            //originbtn.gameObject.SetActive(false);
             backbtn.gameObject.SetActive(true);
-            BackGround.gameObject.SetActive(true);
+            //BackGround.gameObject.SetActive(true);
 
 }
         else if (isOpen == true)
@@ -39,9 +39,9 @@ public class SettingBtnManager : MonoBehaviour
             
             SettingPanel.SetActive(false);
             isOpen=false;
-            originbtn.gameObject.SetActive(true);
+            //originbtn.gameObject.SetActive(true);
             backbtn.gameObject.SetActive(false);
-            BackGround.gameObject.SetActive(false);
+            //BackGround.gameObject.SetActive(false);
         }
     }
 

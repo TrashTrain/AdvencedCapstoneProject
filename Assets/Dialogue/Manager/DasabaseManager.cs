@@ -20,7 +20,10 @@ public class DasabaseManager : MonoBehaviour
         {
             instance = this;
            
-            isFinish = true;
+        }
+        else
+        {
+            Destroy(this);
         }
     }
 
