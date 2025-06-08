@@ -8,28 +8,28 @@ public class TigerScanS : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("플레이어 감지");
+        //Debug.Log("플레이어 감지");
         if (other.CompareTag("Player"))
         {
-            GetTiger.checkRange = 2;
-            GetTiger.TigerStateChanger();
+            //GetTiger.checkRange = 2;
+            //GetTiger.TigerStateChanger();
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && VRPlayer.instance.changeState != VRPlayer.instance.nowState)
         {
-            Debug.Log("플레이어 감지중");
+            //Debug.Log("플레이어 감지중");
             GetTiger.playerT = other.transform;
-            GetTiger.TigerStateChanger();
-            
+            //GetTiger.TigerStateChanger();
+            VRPlayer.instance.nowState = VRPlayer.instance.changeState;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("플레이어 감지 종료");
-        GetTiger.checkRange = 1;
+        //Debug.Log("플레이어 감지 종료");
+        //GetTiger.checkRange = 1;
         //GameMgr.Instance.PlayerInit().SetUpBoundaryLevel();
         GetTiger.tigerState = Tiger.TState.Idle;
     }
