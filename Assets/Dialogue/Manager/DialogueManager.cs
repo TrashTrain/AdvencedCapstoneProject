@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject ui;
 
-    bool isDialogue = false;//대화중 T/F
+    public bool isDialogue = false;//대화중 T/F
     bool isNext = false;   //입력대기
     [Header("텍스트 출력 딜레이")]
     [SerializeField] float textDelay;
@@ -166,6 +166,7 @@ public class DialogueManager : MonoBehaviour
         if (npcObject.GetComponent<InteractionEvent>().checkDestroy)
             Destroy(npcObject.gameObject);
         isDialogue = false;
+        npcObject.GetComponent<InteractionEvent>().tutorial = true;
         contextCount = 0;
         lineCount = 0;
         npcObject.GetComponent<InteractionEvent>().npcCheckIdx++;

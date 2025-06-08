@@ -9,6 +9,7 @@ public class TutorialEvent : MonoBehaviour
     public static bool dialogEnd;
     ParticleSystem particle;
 
+
     private void Start()
     {
         particle = gameObject.GetComponent<ParticleSystem>();
@@ -21,5 +22,6 @@ public class TutorialEvent : MonoBehaviour
             Debug.Log("파티클 실행");
             particle.Play();
         }
+        
     }
 }
