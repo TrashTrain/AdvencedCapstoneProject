@@ -1,3 +1,4 @@
+using GLTFast.Schema;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class TigerAttack : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("플레이어 감지");
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !GetTiger.GetComponent<Animator>().GetBool("IsRunBack"))
         {
             // 슬로우모션
             // GameMgr.Instance.SlowMotion(0.5f);

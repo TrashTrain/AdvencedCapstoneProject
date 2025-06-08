@@ -9789,7 +9789,7 @@ PrefabInstance:
       objectReference: {fileID: 961830196667790500}
     - target: {fileID: 5040254701520921846, guid: 6122be097a605264691afaa16bb87c3f, type: 3}
       propertyPath: soundLibrary.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5040254701520921846, guid: 6122be097a605264691afaa16bb87c3f, type: 3}
       propertyPath: soundLibrary.Array.data[3]
@@ -9799,6 +9799,14 @@ PrefabInstance:
       propertyPath: soundLibrary.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: 1ca26d7ebd6735a4cb3c292a82621f15, type: 2}
+    - target: {fileID: 5040254701520921846, guid: 6122be097a605264691afaa16bb87c3f, type: 3}
+      propertyPath: soundLibrary.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4139de8e4cf1bb54995980af454b1f20, type: 2}
+    - target: {fileID: 5040254701520921846, guid: 6122be097a605264691afaa16bb87c3f, type: 3}
+      propertyPath: soundLibrary.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: b8ca59554a6f2ae48b6fc192cee78730, type: 2}
     - target: {fileID: 7129366214447657436, guid: 6122be097a605264691afaa16bb87c3f, type: 3}
       propertyPath: m_Name
       value: Event

@@ -2,6 +2,7 @@ using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
+using System.Collections;
 
 public class Tiger : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Tiger : MonoBehaviour
     public float tigerRunSpeed;
     public float tigerAttackSpeed;
     public TState tigerState;
+    private TState nowTigerState = TState.Idle;
 
     private Animator animator;
     [SerializeField] private AnimatorController changeAni;
@@ -28,6 +30,11 @@ public class Tiger : MonoBehaviour
     // 범위 스캔 체크 변수
     public float runTime = 5f;
     private float checkRunTime;
+
+    private float playerRunTime = 2f;
+    private float checkPlayerRuntime = 0;
+
+
 
     public enum TState
     {
@@ -58,30 +65,36 @@ public class Tiger : MonoBehaviour
 
         // 떡을 받았을 때 (심취)
         TigerStateChanger();
-        switch (tigerState)
+        if (tigerState != nowTigerState)
         {
-            case TState.Idle:
-                //Debug.Log("Idle");
-                GetRandomMove();
-                TigerWalk();
-                break;
-            case TState.Run:
-                //Debug.Log("Run");
-                GetRandomMove();
-                TigerRun();
-                break;
-            case TState.Attack:
-                //Debug.Log("Attack");
-                //ScanPlayer();
-                TigerAttack();
-                break;
-            case TState.Eat:
-                TigerEat();
-                break;
-            case TState.RunBack:
-                TigerRunBack();
-                break;
+            switch (tigerState)
+            {
+                case TState.Idle:
+                    //Debug.Log("Idle");
+                    GetRandomMove();
+                    TigerWalk();
+                    break;
+                case TState.Run:
+                    //Debug.Log("Run");
+                    GetRandomMove();
+                    TigerRun();
+                    break;
+                case TState.Attack:
+                    //Debug.Log("Attack");
+                    //ScanPlayer();
+                    if (VRPlayer.instance.nowState != VRPlayer.PlayerState.HIDE)
+                        TigerAttack();
+                    break;
+                case TState.Eat:
+                    TigerEat();
+                    break;
+                case TState.RunBack:
+                    TigerRunBack();
+                    break;
+            }
+            nowTigerState = tigerState;
         }
+
         // 이동 테스트
 
     }
@@ -99,6 +112,8 @@ public class Tiger : MonoBehaviour
         }
         else if (collision.gameObject.tag == "dduk")
         {
+            tigerState = TState.Eat;
+            Destroy(collision.gameObject);
             Debug.Log("떡이다!");
         }
     }
@@ -195,7 +210,9 @@ public class Tiger : MonoBehaviour
     //}
     public void TigerStateChanger()
     {
+
         if (VRPlayer.instance.nowState != VRPlayer.instance.changeState)
+        {
             //Debug.Log("BoundaryLevel = " + level);
             switch (VRPlayer.instance.nowState)
             {
@@ -203,6 +220,7 @@ public class Tiger : MonoBehaviour
                     tigerState = TState.Idle;
                     break;
                 case VRPlayer.PlayerState.RUN:
+                    StartCoroutine(WaitForIt());
                     tigerState = TState.Run;
                     break;
                 case VRPlayer.PlayerState.JUMP:
@@ -212,7 +230,13 @@ public class Tiger : MonoBehaviour
                     tigerState = TState.Idle;
                     break;
             }
-        VRPlayer.instance.nowState = VRPlayer.instance.changeState;
+            VRPlayer.instance.nowState = VRPlayer.instance.changeState;
+        }
+
+    }
+    IEnumerator WaitForIt()
+    {
+        yield return new WaitForSeconds(2.0f);
     }
     // 움직임 함수
     private void TigerWalk()
@@ -222,7 +246,7 @@ public class Tiger : MonoBehaviour
         //걷기 코드
         //float speed = tigerWalkSpeed * Time.deltaTime;
         //transform.Translate(Vector3.forward * speed);
-        if (VRPlayer.instance.transform == null) 
+        if (VRPlayer.instance.transform == null)
             Debug.Log("없나?");
         playerT = VRPlayer.instance.transform;
         meshAgent.speed = tigerWalkSpeed;
@@ -231,7 +255,6 @@ public class Tiger : MonoBehaviour
         animator.SetBool("AttackTiger", false);
         animator.SetBool("IsEating", false);
         animator.SetBool("IsRunBack", false);
-
     }
     private void TigerRun()
     {
@@ -281,12 +304,13 @@ public class Tiger : MonoBehaviour
     private void TigerTurnBack()
     {
         checkRunTime += Time.deltaTime;
-        if(checkRunTime >= runTime)
+        if (checkRunTime >= runTime)
         {
             checkRunTime = 0;
-            animator.SetBool("IsWalk", true);
+            //animator.SetBool("IsWalk", true);
+            tigerState = TState.Idle;
         }
-        else if(checkRunTime < runTime)
+        else if (checkRunTime < runTime)
         {
             meshAgent.speed = tigerRunSpeed;
             meshAgent.SetDestination(-playerT.position);
