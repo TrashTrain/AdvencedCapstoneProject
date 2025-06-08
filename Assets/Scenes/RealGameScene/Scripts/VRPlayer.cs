@@ -97,10 +97,28 @@ public class VRPlayer : MonoBehaviour
         SoundManager.Instance.Play("Jump");
     }
 
+    // 사운드 중복 방지
+    private bool isRunning = false; 
     private void Run()
     {
         gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = runSpeed;
-        SoundManager.Instance.Play("Run");
+
+        if (!isRunning)
+        {
+            SoundManager.Instance.Play("Run");
+            isRunning = true;
+        }
+        else
+        {
+            changeState = PlayerState.WALK;
+            gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = 3f;
+
+            if (isRunning)
+            {
+                SoundManager.Instance.Stop("Run");
+                isRunning = false;
+            }
+        }
     }
     private bool IsGrounded()
     {
