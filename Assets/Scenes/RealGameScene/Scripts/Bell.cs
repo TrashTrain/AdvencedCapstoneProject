@@ -18,7 +18,7 @@ public class Bell : MonoBehaviour
         {
             canvas.SetActive(true);
         }
-        if (!dialog.GetComponent<InteractionEvent>().tutorial)
+        if (dialog == null)
             canvas.SetActive(true);
         if (canvas.activeSelf)
         {
