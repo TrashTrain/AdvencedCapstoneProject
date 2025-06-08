@@ -342,8 +342,8 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 1.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -374,113 +374,95 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -8182220039736628417, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   runButton:
-<<<<<<< HEAD
-    m_UseReference: 0
-=======
     m_UseReference: 1
->>>>>>> main
     m_Action:
       m_Name: Run Button
       m_Type: 0
       m_ExpectedControlType: 
-<<<<<<< HEAD
       m_Id: fce80b0d-5e60-4802-8892-7a11ac94709e
-=======
-      m_Id: 9f1c4be9-f4eb-4eb4-9046-8ada23150a79
->>>>>>> main
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-<<<<<<< HEAD
-    m_Reference: {fileID: 0}
-  useItemButton:
-    m_UseReference: 0
-=======
     m_Reference: {fileID: -8431144511622785642, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   useItemButton:
     m_UseReference: 1
->>>>>>> main
     m_Action:
       m_Name: Use Item Button
       m_Type: 0
       m_ExpectedControlType: 
-<<<<<<< HEAD
       m_Id: 9e082b90-53a2-41f5-be00-15228faf7863
-=======
-      m_Id: 5396f962-717a-400b-b1a2-b8fb4d9a4c3e
->>>>>>> main
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-<<<<<<< HEAD
-    m_Reference: {fileID: 0}
-  menuItemButton:
-    m_UseReference: 0
-=======
     m_Reference: {fileID: 4815393060412178714, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   menuItemButton:
     m_UseReference: 1
->>>>>>> main
     m_Action:
       m_Name: Menu Item Button
       m_Type: 0
       m_ExpectedControlType: 
-<<<<<<< HEAD
       m_Id: 07149b6e-f27f-41cb-9476-866bea944b33
-=======
-      m_Id: 3adb878d-561c-41b5-ad88-3450a2e02f51
->>>>>>> main
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-<<<<<<< HEAD
-    m_Reference: {fileID: 0}
-  menuOptionButton:
-    m_UseReference: 0
-=======
     m_Reference: {fileID: 8389885582637502973, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   menuOptionButton:
     m_UseReference: 1
->>>>>>> main
     m_Action:
       m_Name: Menu Option Button
       m_Type: 0
       m_ExpectedControlType: 
-<<<<<<< HEAD
       m_Id: ce1fcad5-ae7e-4dbf-8a15-3c7f22b4e319
-=======
-      m_Id: 7e3c1406-f292-40e8-9b5b-f4e48e0b61ac
->>>>>>> main
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-<<<<<<< HEAD
-    m_Reference: {fileID: 0}
-=======
     m_Reference: {fileID: -4936607454924999028, guid: c348712bda248c246b8c49b3db54643f, type: 3}
->>>>>>> main
   jumpheight: 1.5
   runSpeed: 5
   cc: {fileID: 7589993198960171221}
   groundLayers:
     serializedVersion: 2
-<<<<<<< HEAD
     m_Bits: 128
-  useItemPanel: {fileID: 0}
-  itemMenuPanel: {fileID: 0}
-  optionMenuPanel: {fileID: 0}
-=======
-    m_Bits: 1152
   useItemPanel: {fileID: 0}
   itemMenuPanel: {fileID: 0}
   optionMenuPanel: {fileID: 0}
   changeState: 0
   nowState: 0
->>>>>>> main
+--- !u!1 &3041432294453662463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5654652538625162804}
+  m_Layer: 0
+  m_Name: SpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5654652538625162804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041432294453662463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.317}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5597080899602364437}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3419181701084440708
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +883,7 @@ MonoBehaviour:
   m_AllowHoverHapticsWhileSelecting: 0
   m_LineType: 0
   m_BlendVisualLinePoints: 1
-  m_MaxRaycastDistance: 300
+  m_MaxRaycastDistance: 3
   m_RayOriginTransform: {fileID: 0}
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 12
@@ -1237,6 +1219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5654652538625162804}
   - {fileID: 9085790143158128245}
   - {fileID: 2478650421116706686}
   m_Father: {fileID: 2675510332196118767}
@@ -1866,7 +1849,7 @@ MonoBehaviour:
   m_AllowHoverHapticsWhileSelecting: 0
   m_LineType: 0
   m_BlendVisualLinePoints: 1
-  m_MaxRaycastDistance: 300
+  m_MaxRaycastDistance: 3
   m_RayOriginTransform: {fileID: 0}
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 12

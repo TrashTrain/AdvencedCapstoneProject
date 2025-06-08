@@ -9787,6 +9787,18 @@ PrefabInstance:
       propertyPath: sfxSource
       value: 
       objectReference: {fileID: 961830196667790500}
+    - target: {fileID: 5040254701520921846, guid: 6122be097a605264691afaa16bb87c3f, type: 3}
+      propertyPath: soundLibrary.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040254701520921846, guid: 6122be097a605264691afaa16bb87c3f, type: 3}
+      propertyPath: soundLibrary.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: bb54759b26ac2c74487a0b63943d6fa8, type: 2}
+    - target: {fileID: 5040254701520921846, guid: 6122be097a605264691afaa16bb87c3f, type: 3}
+      propertyPath: soundLibrary.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ca26d7ebd6735a4cb3c292a82621f15, type: 2}
     - target: {fileID: 7129366214447657436, guid: 6122be097a605264691afaa16bb87c3f, type: 3}
       propertyPath: m_Name
       value: Event
