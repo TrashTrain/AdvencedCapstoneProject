@@ -104,7 +104,10 @@ public class Tiger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        if (collision.gameObject.tag == "Player")
+        {
+            gameObject.GetComponent<Animator>().runtimeAnimatorController = changeAni;
+        }
         if (collision.gameObject.tag == "gotgam")
         {
             isRunBack = true;

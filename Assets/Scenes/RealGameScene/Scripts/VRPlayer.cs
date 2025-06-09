@@ -31,8 +31,16 @@ public class VRPlayer : MonoBehaviour
 
     public GameObject tiger;
 
+    public bool hit = false;
+
+    public FadeScreen fadeScreen;
+
+    public bool checkStartScene = false;
     private float gravity = Physics.gravity.y;
     private Vector3 movement;
+
+    [Header("BloodScreen")]
+    [SerializeField] private GameObject bloodScreen;
 
     public enum PlayerState
     {
@@ -56,6 +64,13 @@ public class VRPlayer : MonoBehaviour
     }
     private void Update()
     {
+        if (menuOptionButton.action.WasPressedThisFrame())
+        {
+            //Debug.Log("메뉴버튼 클릭");
+            optionMenuPanel.SetActive(!optionMenuPanel.activeSelf);
+        }
+        if (checkStartScene)
+            return;
         bool _isGrounded = IsGrounded();
         if (IsGrounded())
         {
@@ -119,16 +134,24 @@ public class VRPlayer : MonoBehaviour
         {
             itemMenuPanel.SetActive(!itemMenuPanel.activeSelf);
         }
-        if (menuOptionButton.action.WasPressedThisFrame())
-        {
-            //Debug.Log("메뉴버튼 클릭");
-            optionMenuPanel.SetActive(!optionMenuPanel.activeSelf);
-        }
+        
         movement.y += gravity * Time.deltaTime;
 
         cc.Move(movement * Time.deltaTime);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Tiger")
+        {
+            bloodScreen.GetComponent<BloodScreen>().TakeDamage();
+            if (bloodScreen.GetComponent<BloodScreen>().playercurrentHealth <= 0)
+            {
+                fadeScreen.FadeOut();
+                GameMgr.Instance.SceneLoader("DieScene");
+            }
+        }
+    }
     private void Jump()
     {
         movement.y = Mathf.Sqrt(jumpheight * -3.0f * gravity);

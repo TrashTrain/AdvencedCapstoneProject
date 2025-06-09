@@ -432,6 +432,11 @@ MonoBehaviour:
   optionMenuPanel: {fileID: 0}
   changeState: 0
   nowState: 0
+  tiger: {fileID: 0}
+  hit: 0
+  fadeScreen: {fileID: 0}
+  checkStartScene: 0
+  bloodScreen: {fileID: 0}
 --- !u!1 &3041432294453662463
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +977,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.02
+    widthMultiplier: 0.01
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1938,7 +1943,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.02
+    widthMultiplier: 0.01
     widthCurve:
       serializedVersion: 2
       m_Curve:
