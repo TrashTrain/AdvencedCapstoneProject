@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 748d4cbe53d85034b99146a8e2d11b19, type: 3}
-  m_Name: GrowlTiger
+  m_Name: 06-3. TigerRoar
   m_EditorClassIdentifier: 
-  soundKey: GrowlTiger
-  clip: {fileID: 8300000, guid: 46a6da380134e074cac27b22fbbe2b5d, type: 3}
+  soundKey: TigerRoar
+  clip: {fileID: 8300000, guid: b22ef4a96e7143545ae24d5ea2a1c5dd, type: 3}
   mixerGroup: {fileID: 8078727747493738216, guid: eb0e73b5821a3fe499e7d6db3e0352ad, type: 2}
   loop: 0
