@@ -57,4 +57,8 @@ public class GameMgr : MonoBehaviour
     {
         LoadingScene.LoadScene(sceneName);
     }
+    public void SceneFastLoader(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }

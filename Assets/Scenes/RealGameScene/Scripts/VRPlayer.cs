@@ -148,7 +148,7 @@ public class VRPlayer : MonoBehaviour
             if (bloodScreen.GetComponent<BloodScreen>().playercurrentHealth <= 0)
             {
                 fadeScreen.FadeOut();
-                GameMgr.Instance.SceneLoader("DieScene");
+                GameMgr.Instance.SceneFastLoader("DieScene");
             }
         }
     }

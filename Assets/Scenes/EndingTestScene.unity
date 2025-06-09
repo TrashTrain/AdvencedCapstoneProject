@@ -440,24 +440,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &236333745 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6520765816147399011, guid: 46738651cd64d2d4281f95e519641315, type: 3}
-  m_PrefabInstance: {fileID: 542809662}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &236333747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236333745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 505fe4090334a944ba3a909bdc1e0658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GetTiger: {fileID: 2127946208}
 --- !u!1 &452538547
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,24 +484,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &472636461 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5321211079314820510, guid: 46738651cd64d2d4281f95e519641315, type: 3}
-  m_PrefabInstance: {fileID: 542809662}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &472636463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472636461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ea93c6e0c31ea74fb4f4b884a0b6d5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GetTiger: {fileID: 2127946208}
 --- !u!1 &490490105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,19 +1198,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6546892552005769062, guid: 46738651cd64d2d4281f95e519641315, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2127946208}
-    - targetCorrespondingSourceObject: {fileID: 4357656259674681954, guid: 46738651cd64d2d4281f95e519641315, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1358387609}
-    - targetCorrespondingSourceObject: {fileID: 6520765816147399011, guid: 46738651cd64d2d4281f95e519641315, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 236333747}
-    - targetCorrespondingSourceObject: {fileID: 5321211079314820510, guid: 46738651cd64d2d4281f95e519641315, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 472636463}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46738651cd64d2d4281f95e519641315, type: 3}
 --- !u!1 &599993986
 GameObject:
@@ -2213,24 +2165,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1358387607 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4357656259674681954, guid: 46738651cd64d2d4281f95e519641315, type: 3}
-  m_PrefabInstance: {fileID: 542809662}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1358387609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358387607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c945517a0987dd049b1d8f686f54fed8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GetTiger: {fileID: 2127946208}
 --- !u!1 &1396987202
 GameObject:
   m_ObjectHideFlags: 0
@@ -3630,31 +3564,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
---- !u!1 &2127946207 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6546892552005769062, guid: 46738651cd64d2d4281f95e519641315, type: 3}
-  m_PrefabInstance: {fileID: 542809662}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2127946208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127946207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86abdee647c354844873cc8cb9ec49ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tigerWalkSpeed: 5
-  tigerRunSpeed: 8
-  tigerAttackSpeed: 3
-  attackDistance: 2
-  tigerState: 1
-  changeAni: {fileID: 0}
-  playerT: {fileID: 0}
-  checkRange: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
