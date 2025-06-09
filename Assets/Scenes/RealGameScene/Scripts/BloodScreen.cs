@@ -10,8 +10,6 @@ public class BloodScreen : MonoBehaviour
     [SerializeField] private float playerMaxHealth = 3f;
     public float playercurrentHealth = 3f;
 
-    [Header("Hurt Splatter Image")]
-    [SerializeField] private Image splatterImage = null;
 
     [Header("Hurt Image Flash")]
     [SerializeField] private Image hurtImage = null;
@@ -20,16 +18,12 @@ public class BloodScreen : MonoBehaviour
     private void UpdateHealth()
     {
         playercurrentHealth--;
-        Color splatterAlpha = splatterImage.color;
-        splatterAlpha.a = 1 - (playercurrentHealth / playerMaxHealth);
-        splatterImage.color = splatterAlpha;
-
     }
 
     IEnumerator HurtFlash()
     {
         hurtImage.enabled = true;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         hurtImage.enabled = false;
     }
 

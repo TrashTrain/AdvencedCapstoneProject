@@ -770,6 +770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1478292833145370524}
   - component: {fileID: 2999791347424979106}
+  - component: {fileID: 2706892888017328596}
   m_Layer: 0
   m_Name: ScanRangeL
   m_TagString: Untagged
@@ -813,6 +814,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 100
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2706892888017328596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357656259674681954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c945517a0987dd049b1d8f686f54fed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GetTiger: {fileID: 5345879792146742696}
 --- !u!1 &4519166480909335754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543654062281538127}
   - component: {fileID: 3622004767568092110}
+  - component: {fileID: 2636979587369566408}
   m_Layer: 0
   m_Name: AttackRange
   m_TagString: Untagged
@@ -1282,6 +1297,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2636979587369566408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321211079314820510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea93c6e0c31ea74fb4f4b884a0b6d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GetTiger: {fileID: 5345879792146742696}
 --- !u!1 &5594436735690880334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,6 +1627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5285796456891936064}
   - component: {fileID: 7032103010708597750}
+  - component: {fileID: 2467496799442453398}
   m_Layer: 0
   m_Name: ScanRagneS
   m_TagString: Untagged
@@ -1642,6 +1671,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2467496799442453398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520765816147399011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505fe4090334a944ba3a909bdc1e0658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GetTiger: {fileID: 5345879792146742696}
 --- !u!1 &6546892552005769062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,6 +1698,7 @@ GameObject:
   - component: {fileID: 538244385750717060}
   - component: {fileID: 5489256277272500386}
   - component: {fileID: 8179908422846276313}
+  - component: {fileID: 5345879792146742696}
   m_Layer: 0
   m_Name: EndingTiger
   m_TagString: Untagged
@@ -1671,7 +1714,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6546892552005769062}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9486051, z: -0, w: 0.31646228}
+  m_LocalRotation: {x: 0, y: 0.9486058, z: 0, w: 0.3164605}
   m_LocalPosition: {x: 414.367, y: 1.48, z: 400}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
@@ -1808,6 +1851,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &5345879792146742696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546892552005769062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86abdee647c354844873cc8cb9ec49ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tigerWalkSpeed: 5
+  tigerRunSpeed: 8
+  tigerAttackSpeed: 3
+  attackDistance: 2
+  tigerState: 1
+  changeAni: {fileID: 0}
+  playerT: {fileID: 0}
+  checkRange: 2
 --- !u!1 &6952555371677117448
 GameObject:
   m_ObjectHideFlags: 0
