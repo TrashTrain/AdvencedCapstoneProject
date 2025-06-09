@@ -29,6 +29,10 @@ public class Tiger : MonoBehaviour
     public float runTime = 5f;
     private float checkRunTime;
 
+    // 호랑이 IDLE 상태 변수 
+    private float idleRoarInterval = 10f;   // 그르릉할 시간
+    private float idleRoarTimer = 0f;      // 시간 누적
+
     public enum TState
     {
         Idle,
@@ -43,6 +47,8 @@ public class Tiger : MonoBehaviour
     {
         // 첫 등장은 마을에서 집에서 나온 뒤.(배치 해두고 스토리 이후 시작)
         playerT = transform;
+        // 첫 조우시 호랑이 고함
+        SoundManager.Instance.Play("GrowlTiger");
         tigerState = TState.Idle;
         animator = GetComponent<Animator>();
         meshAgent = GetComponent<NavMeshAgent>();
@@ -64,6 +70,13 @@ public class Tiger : MonoBehaviour
                 //Debug.Log("Idle");
                 GetRandomMove();
                 TigerWalk();
+                // 간격 띄우고 그르릉
+                idleRoarTimer += Time.deltaTime;
+                if (idleRoarTimer >= idleRoarInterval)
+                {
+                    SoundManager.Instance.Play("TigerRoar");
+                    idleRoarTimer = 0f;
+                }
                 break;
             case TState.Run:
                 //Debug.Log("Run");
@@ -214,9 +227,60 @@ public class Tiger : MonoBehaviour
             }
         VRPlayer.instance.nowState = VRPlayer.instance.changeState;
     }
+
+
+    // 사운드 중복 방지
+    private bool isTigerWalk = false;
+    private bool isTigerRun = false;
+    private bool isTigerRoar = false;
+    private bool isTigerAttack = false;
+    private bool isTigerEatting = false;
+
+    // 사운드 스탑함수
+    void TigerSoundStop()
+    {
+        if (isTigerWalk)
+        {
+            SoundManager.Instance.Stop("WalkTiger");
+            isTigerWalk = false;
+        }
+
+        if (isTigerRun)
+        {
+            SoundManager.Instance.Stop("RunTiger");
+            isTigerRun = false;
+        }
+
+        if (isTigerRoar)
+        {
+            SoundManager.Instance.Stop("TigerRoar");
+            isTigerRoar = false;
+        }
+
+        if (isTigerAttack)
+        {
+            SoundManager.Instance.Stop("TigerPunch");
+            isTigerAttack = false;
+        }
+
+        if (isTigerEatting)
+        {
+            SoundManager.Instance.Stop("꿀꺽");
+            isTigerEatting = false;
+        }
+
+    }
+
     // 움직임 함수
     private void TigerWalk()
     {
+        // 걷기 효과음 
+        if (!isTigerWalk)
+        {
+            SoundManager.Instance.Play("WalkTiger");
+            isTigerWalk = true;
+        }
+
         // 걷기 애니메이션 재생
 
         //걷기 코드
@@ -236,6 +300,13 @@ public class Tiger : MonoBehaviour
     private void TigerRun()
     {
 
+        // 달리기 효과음 
+        if (!isTigerRun)
+        {
+            SoundManager.Instance.Play("RunTiger");
+            isTigerRun = true;
+        }
+
         //뛰기 코드
         //float speed = tigerRunSpeed * Time.deltaTime;
         //transform.Translate(Vector3.forward * speed);
@@ -250,6 +321,13 @@ public class Tiger : MonoBehaviour
 
     private void TigerAttack()
     {
+        // 호랑이 펀치 효과음 
+        if (!isTigerAttack)
+        {
+            SoundManager.Instance.Play("TigerPunch");
+            isTigerAttack = true;
+        }
+
         meshAgent.velocity = Vector3.zero;
         animator.SetBool("AttackTiger", true);
         animator.SetBool("IsWalk", false);
@@ -260,6 +338,13 @@ public class Tiger : MonoBehaviour
 
     private void TigerEat()
     {
+        // 호랑이 펀치 효과음 
+        if (!isTigerEatting)
+        {
+            SoundManager.Instance.Play("꿀꺽");
+            isTigerEatting = true;
+        }
+
         meshAgent.velocity = Vector3.zero;
         animator.SetBool("IsEating", true);
         animator.SetBool("IsWalk", false);

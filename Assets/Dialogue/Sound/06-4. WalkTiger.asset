@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 748d4cbe53d85034b99146a8e2d11b19, type: 3}
-  m_Name: Run
+  m_Name: 06-4. WalkTiger
   m_EditorClassIdentifier: 
-  soundKey: Run
-  clip: {fileID: 8300000, guid: 94b27be5cb6ef4645b2a742a3818cd7b, type: 3}
-  mixerGroup: {fileID: 4841486002489762503, guid: eb0e73b5821a3fe499e7d6db3e0352ad, type: 2}
+  soundKey: WalkTiger
+  clip: {fileID: 8300000, guid: 95209845bb602424b93980ea1f9b06df, type: 3}
+  mixerGroup: {fileID: 8078727747493738216, guid: eb0e73b5821a3fe499e7d6db3e0352ad, type: 2}
   loop: 1
