@@ -106,6 +106,7 @@ public class Inventory : MonoBehaviour
 
             if (target_stack_Item.quantity <= 0)
             {
+                return;
                 stack_items.Remove(target_stack_Item);
             }
             FreshSlot();

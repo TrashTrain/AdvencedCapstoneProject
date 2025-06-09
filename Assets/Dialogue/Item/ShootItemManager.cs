@@ -8,6 +8,7 @@ public class ShootItemManager : MonoBehaviour
     [SerializeField] private GameObject gamPrefab;
     [SerializeField] private GameObject ddukPrefab;
     [SerializeField] private Transform spawnPos;
+    [SerializeField] private GameObject check;
     Transform spawn;
     public void UseGam()
     {
@@ -16,6 +17,7 @@ public class ShootItemManager : MonoBehaviour
         GameObject gam = Instantiate(gamPrefab, spawnPos);
         gam.GetComponent<Transform>().position = spawnPos.position;
         gam.transform.SetParent(null);
+        check.SetActive(false);
     }
    public void UseDduck()
     {
@@ -23,7 +25,7 @@ public class ShootItemManager : MonoBehaviour
         GameObject dduk = Instantiate(ddukPrefab, spawnPos);
         dduk.GetComponent<Transform>().position = spawnPos.position;
         dduk.transform.SetParent(null);
+        check.SetActive(false);
     }
-    
 
 }

@@ -17,6 +17,7 @@ public class ChangGui : MonoBehaviour
     public GameObject nextEvent;
     public GameObject nextEvent2;
     private bool checkAutoPlay = false;
+
     private void Start()
     {
         npcIndex = gameObject.GetComponent<InteractionEvent>();
@@ -28,7 +29,7 @@ public class ChangGui : MonoBehaviour
         {
             npcIndex.dialogue.csvFileName = "Ã¢±Í Áý";
             trans.position = new Vector3(pos1.position.x, pos1.position.y, pos1.position.z);
-            door.transform.rotation = Quaternion.Lerp(door.transform.rotation, Quaternion.Euler(0, 20f, 0), 1f * Time.deltaTime);
+            
         }
         else if (npcIndex.npcCheckIdx == 2)
         {
@@ -36,6 +37,7 @@ public class ChangGui : MonoBehaviour
             trans.position = new Vector3(pos2.position.x, pos2.position.y, pos2.position.z);
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider>().enabled = false;
+            door.transform.rotation = Quaternion.Lerp(door.transform.rotation, Quaternion.Euler(0, 20f, 0), 1f * Time.deltaTime);
             if (!checkAutoPlay)
             {
                 checkAutoPlay = true;
@@ -47,6 +49,8 @@ public class ChangGui : MonoBehaviour
         else if (npcIndex.npcCheckIdx == 3)
         {
             door.transform.rotation = Quaternion.Lerp(door.transform.rotation, Quaternion.Euler(0, 90f, 0), 1f * Time.deltaTime);
+
+            Destroy(gameObject, 2);
             if (nextEvent.GetComponent<InteractionEvent>().autoPlay)
             {
                 tiger.SetActive(true);
@@ -55,9 +59,10 @@ public class ChangGui : MonoBehaviour
                 //Destroy(gameObject);
                 gameObject.GetComponent<InteractionEvent>().autoPlay = false;
             }
+            
 
         }
-        else if (npcIndex.npcCheckIdx == 4)
-            Destroy(gameObject);
+
+            
     }
 }

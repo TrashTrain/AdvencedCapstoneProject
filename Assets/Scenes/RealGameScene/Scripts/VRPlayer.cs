@@ -29,8 +29,18 @@ public class VRPlayer : MonoBehaviour
     public PlayerState changeState;
     public PlayerState nowState = PlayerState.WALK;
 
+    public GameObject tiger;
+
+    public bool hit = false;
+
+    public FadeScreen fadeScreen;
+
+    public bool checkStartScene = false;
     private float gravity = Physics.gravity.y;
     private Vector3 movement;
+
+    [Header("BloodScreen")]
+    [SerializeField] private GameObject bloodScreen;
 
     public enum PlayerState
     {
@@ -54,24 +64,67 @@ public class VRPlayer : MonoBehaviour
     }
     private void Update()
     {
+        if (menuOptionButton.action.WasPressedThisFrame())
+        {
+            //Debug.Log("메뉴버튼 클릭");
+            optionMenuPanel.SetActive(!optionMenuPanel.activeSelf);
+        }
+        if (checkStartScene)
+            return;
         bool _isGrounded = IsGrounded();
-        if(IsGrounded())
+        if (IsGrounded())
+        {
+            SoundManager.Instance.Play("Jump");
+        }
             //Debug.Log("땅밟고있음");
         if (jumpButton.action.WasPressedThisFrame() && _isGrounded && TestPlayer.isPlayerJump && TestPlayer.isPlayerMove)
         {
-            //Debug.Log("점프");
+            Debug.Log("점프");
             changeState = PlayerState.JUMP;
             Jump();
         }
         if(runButton.action.IsPressed() && TestPlayer.isPlayerJump && TestPlayer.isPlayerMove)
         {
-            changeState = PlayerState.RUN;
-            Run();
+            if (tiger != null)
+            {
+                if (!tiger.GetComponent<Tiger>().isAttack)
+                {
+                    Debug.Log("run");
+                    changeState = PlayerState.RUN;
+                    SoundManager.Instance.Play("Run");
+                    Run();
+                }
+            }
+            else
+            {
+                Debug.Log("run");
+                changeState = PlayerState.RUN;
+                SoundManager.Instance.Play("Run");
+                Run();
+            }
+            
+            
         }
         else
         {
-            changeState = PlayerState.WALK;
-            gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = 3f;
+            if (tiger != null)
+            {
+                if (!tiger.GetComponent<Tiger>().isAttack)
+                {
+                    Debug.Log("walk");
+                    SoundManager.Instance.Stop("Run");
+                    changeState = PlayerState.WALK;
+                    gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = 3f;
+                }
+            }
+            else
+            {
+                Debug.Log("walk");
+                SoundManager.Instance.Stop("Run");
+                changeState = PlayerState.WALK;
+                gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = 3f;
+            }
+                    
         }
         if(useItemButton.action.WasPressedThisFrame() && !itemMenuPanel.activeSelf && !optionMenuPanel.activeSelf)
         {
@@ -81,20 +134,27 @@ public class VRPlayer : MonoBehaviour
         {
             itemMenuPanel.SetActive(!itemMenuPanel.activeSelf);
         }
-        if (menuOptionButton.action.WasPressedThisFrame())
-        {
-            //Debug.Log("메뉴버튼 클릭");
-            optionMenuPanel.SetActive(!optionMenuPanel.activeSelf);
-        }
+        
         movement.y += gravity * Time.deltaTime;
 
         cc.Move(movement * Time.deltaTime);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Tiger")
+        {
+            bloodScreen.GetComponent<BloodScreen>().TakeDamage();
+            if (bloodScreen.GetComponent<BloodScreen>().playercurrentHealth <= 0)
+            {
+                fadeScreen.FadeOut();
+                GameMgr.Instance.SceneLoader("DieScene");
+            }
+        }
+    }
     private void Jump()
     {
         movement.y = Mathf.Sqrt(jumpheight * -3.0f * gravity);
-        SoundManager.Instance.Play("Jump");
     }
 
     // 사운드 중복 방지
@@ -102,23 +162,6 @@ public class VRPlayer : MonoBehaviour
     private void Run()
     {
         gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = runSpeed;
-
-        if (!isRunning)
-        {
-            SoundManager.Instance.Play("Run");
-            isRunning = true;
-        }
-        else
-        {
-            changeState = PlayerState.WALK;
-            gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = 3f;
-
-            if (isRunning)
-            {
-                SoundManager.Instance.Stop("Run");
-                isRunning = false;
-            }
-        }
     }
     private bool IsGrounded()
     {

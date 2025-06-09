@@ -11,15 +11,27 @@ public class Bell : MonoBehaviour
     public Item bell;
     public GameObject dialog;
 
+    private void Start()
+    {
+        if (dialog == null)
+            dialog = gameObject;
+        if (bell == null)
+            Destroy(gameObject);
+    }
+
     void Update()
     {
+        if (dialog == gameObject)
+        {
+            canvas.SetActive(true);
+            return;
+        }
         //canvas
-        if(Tutorial.tutorialIdx >= 2 && dialog.GetComponent<InteractionEvent>().tutorial)
+        if (Tutorial.tutorialIdx >= 2 && dialog.GetComponent<InteractionEvent>().tutorial)
         {
             canvas.SetActive(true);
         }
-        if (dialog == null)
-            canvas.SetActive(true);
+        
         if (canvas.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Space))
