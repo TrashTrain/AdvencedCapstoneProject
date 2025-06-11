@@ -1,6 +1,7 @@
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EndingTiger : MonoBehaviour
 {
@@ -41,6 +42,11 @@ public class EndingTiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(VRPlayer.instance.bloodScreen.GetComponent<BloodScreen>().playercurrentHealth <= 1 && SceneManager.GetActiveScene().name == "EndingScene")
+        {
+            gameObject.GetComponent<InteractionEvent>().enabled = true;
+            GameMgr.Instance.SlowMotion(0);
+        }
         playerT = VRPlayer.instance.transform;
         meshAgent.SetDestination(playerT.position);
         switch (tigerState)

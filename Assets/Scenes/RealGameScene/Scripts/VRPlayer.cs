@@ -40,7 +40,7 @@ public class VRPlayer : MonoBehaviour
     private Vector3 movement;
 
     [Header("BloodScreen")]
-    [SerializeField] private GameObject bloodScreen;
+    public GameObject bloodScreen;
 
     public enum PlayerState
     {
