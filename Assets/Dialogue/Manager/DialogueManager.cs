@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 
@@ -170,6 +171,10 @@ public class DialogueManager : MonoBehaviour
         contextCount = 0;
         lineCount = 0;
         npcObject.GetComponent<InteractionEvent>().npcCheckIdx++;
+        if (npcObject.GetComponent<InteractionEvent>().dialogue.csvFileName == "호식총 엔딩2")
+            GameMgr.Instance.SceneLoader("EndingScene");
+        if (SceneManager.GetActiveScene().name == "EndingScene")
+            GameMgr.Instance.SlowMotion(1);
         dialogues = null;
         DialNextImage.gameObject.SetActive(false);
         TestPlayer.isPlayerMove = true;
@@ -201,7 +206,7 @@ public class DialogueManager : MonoBehaviour
             txt_Dialogue.text += t_ReplaceText[i];
             lastDialogue = txt_Dialogue.text;
             lastSpeaker = txt_Name.text;
-            yield return new WaitForSeconds(textDelay);
+            yield return new WaitForSecondsRealtime(textDelay);
         }
         if (lineCount + 1 < dialogues.Length && dialogues[lineCount + 1].isChoice == true)    //다음 대사가 선택지면 space 스킵해 바로 다음 대사(선택지)로
         {
