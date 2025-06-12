@@ -42,7 +42,7 @@ public class InteractionEvent : MonoBehaviour
         //button.GetComponent<Button>().onClick.AddListener(OnClickDialogStart);
     }
 
-    void OnClickDialogStart()
+    public void OnClickDialogStart()
     {
         button.SetActive(false);
         TestPlayer.isPlayerMove = false;

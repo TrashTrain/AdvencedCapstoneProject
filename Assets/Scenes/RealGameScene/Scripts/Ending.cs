@@ -16,5 +16,6 @@ public class Ending : MonoBehaviour
         endingObject.SetActive(true);
 
         RenderSettings.fog = false;
+        gameObject.GetComponent<InteractionEvent>().OnClickDialogStart();
     }
 }
