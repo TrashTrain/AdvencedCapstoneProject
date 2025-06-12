@@ -1,4 +1,4 @@
-using UnityEditor.Animations;
+
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -17,8 +17,8 @@ public class Tiger : MonoBehaviour
     private TState nowTigerState = TState.Idle;
 
     private Animator animator;
-    [SerializeField] private AnimatorController changeAni;
-
+    [SerializeField] private RuntimeAnimatorController changeAni;
+    
     private NavMeshAgent meshAgent;
 
     public Transform playerT;
@@ -399,6 +399,7 @@ public class Tiger : MonoBehaviour
         if (checkRunTime >= runTime)
         {
             checkRunTime = 0;
+            isRunBack = false;
             //animator.SetBool("IsWalk", true);
             tigerState = TState.Idle;
         }
